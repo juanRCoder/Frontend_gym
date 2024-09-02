@@ -1,18 +1,18 @@
-@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap");
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  font-family: "Oswald", sans-serif;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
 
-  --dark: rgb(24, 29, 35);
-  --light-gray: rgba(234, 234, 235, 1);
-  --dark-mid: rgb(18, 16, 14);
-  --gray-mid: rgba(61, 61, 61, 1);
-  --gray: rgba(87, 90, 95, 1);
-  --white: rgba(255, 255, 255, 1);
-  --yellow: rgba(244, 175, 0, 1);
-  --header: rgb(15, 14, 14);
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
