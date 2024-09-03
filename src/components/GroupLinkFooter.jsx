@@ -8,8 +8,8 @@ import LinkFooter from "./LinkFooter";
 
 function GroupLinkFooter() {
   return (
-    <section className="mt-5 ml-20 flex flex-1 justify-between">
-      <div className="w-36">
+    <section className="lg:pl-16 md:grid-cols-3 sm:pl-12 sm:grid-cols-2 xs:grid-cols-2 grid grid-cols-1 py-8 gap-6 text-lg">
+      <div className="">
         <div className="flex flex-col gap-1 font-semibold mb-2">
           <Link to={"/"}>Inicio</Link>
           <Link to={"/"}>Acerca de nosotros</Link>
@@ -20,23 +20,23 @@ function GroupLinkFooter() {
           <LinkFooter destiny={"Servicios"} link={"/"} />
         </ul>
       </div>
-      <div className="w-36">
+      <div className="">
         <div className="flex flex-col font-semibold mb-[6px]">
           <Link to={"/"}>Tienda</Link>
         </div>
-        <ul className="flex flex-col gap-1">
+        <ul className="flex flex-col gap-1 w-32">
           <LinkFooter destiny={"Ingresar"} link={"/"} />
           <LinkFooter destiny={"Registrate aquí"} link={"/"} />
         </ul>
       </div>
-      <div className="">
+      <div className="md:col-span-1 xs:col-span-2">
         <div className="flex flex-col font-semibold mb-[6px]">
           <p>Contactanos</p>
         </div>
         <ul className="flex flex-col gap-1">
-          <li className="flex items-start justify-center gap-2">
+          <li className="flex items-start justify-start gap-2">
             <IoLocationOutline className="h-7 w-7" />
-            <p>Av. 123, Centro, Valparaíso,<br />Chile.</p>
+            <p>Av. 123, Centro, Valparaíso, Chile.</p>
           </li>
           <li className="flex items-center justify-start gap-2">
             <CgMail className="h-7 w-7" />
