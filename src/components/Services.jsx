@@ -6,8 +6,8 @@ import { BsFillPeopleFill } from "react-icons/bs";
 
 function Services() {
   return (
-    <section className="bg-dark py-[4rem]">
-      <section className="container mx-auto flex flex-col lg:flex-row justify-between space-y-[2rem] lg:space-y-0 px-4 lg:px-8 text-yellow">
+    <section className="bg-dark py-[4rem] w-max-7xl mx-auto">
+      <section className="container mx-auto grid grid-cols-2 md:grid-cols-4 place-items-center justify-between space-y-[2rem] lg:space-y-0 px-4 lg:px-8 text-yellow">
         <section className="flex flex-col items-center">
           <h2 className="text-base lg:text-lg text-center">
             TU ELIGES TU HORARIO

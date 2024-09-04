@@ -11,8 +11,9 @@ function NavBar() {
   const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
 
   return (
-    <div className="w-full mx-auto">
-      <nav className="flex flex-col md:flex-row w-full h-auto bg-header p-10 py-2 relative">
+    <section className="bg-header">
+         <div className="w-full md:container mx-auto">
+      <nav className="flex flex-col md:flex-row w-full h-auto bg-header py-2 relative">
         <div className="flex items-center justify-between p-4 md:p-6">
           <img
             src="./src/assets/img/powerzone_logo.png"
@@ -34,7 +35,7 @@ function NavBar() {
           <menu className="flex flex-col md:flex-row md:space-x-8 md:ml-auto text-center md:text-left relative">
             <a
               href="#"
-              className="relative flex items-center text-white text-2xl m-4 md:m-6 hover:text-yellow group"
+              className="relative flex items-center text-white text-xl m-4 md:m-6 hover:text-yellow group"
             >
               <span className="relative z-10">Inicio</span>
               <span className="absolute left-0 bottom-[-10px] w-full h-[2px] bg-yellow transform scale-x-0 transition-transform duration-300 ease-out group-hover:scale-x-100"></span>
@@ -74,6 +75,8 @@ function NavBar() {
         </div>
       </nav>
     </div>
+    </section>
+ 
   );
 }
 
