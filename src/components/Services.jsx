@@ -12,23 +12,23 @@ function Services() {
           <h2 className="text-base lg:text-lg text-center">
             TU ELIGES TU HORARIO
           </h2>
-          <HiOutlineCalendar className="text-5xl lg:text-6xl text-white mt-[1rem] transition duration-300 hover:scale-110 hover:text-yellow" />
+          <HiOutlineCalendar className="text-5xl lg:text-6xl text-white mt-[1rem] transition duration-300 hover:scale-[125%] hover:text-yellow" />
         </section>
         <section className="flex flex-col items-center">
           <h2 className="text-base lg:text-lg text-center">
             PLANES PERSONALIZADOS
           </h2>
-          <BsFire className="text-5xl lg:text-6xl text-white mt-[1rem] transition duration-300 hover:scale-110 hover:text-yellow" />
+          <BsFire className="text-5xl lg:text-6xl text-white mt-[1rem] transition duration-300 hover:scale-[125%] hover:text-yellow" />
         </section>
         <section className="flex flex-col items-center">
           <h2 className="text-base lg:text-lg text-center">EQUIPOS MODERNOS</h2>
-          <IoIosFitness className="text-5xl lg:text-6xl text-white mt-[1rem] transition duration-300 hover:scale-110 hover:text-yellow" />
+          <IoIosFitness className="text-5xl lg:text-6xl text-white mt-[1rem] transition duration-300 hover:scale-[125%] hover:text-yellow" />
         </section>
         <div className="flex flex-col items-center">
           <h2 className="text-base lg:text-lg text-center">
             TRAINERS PROFESIONALES
           </h2>
-          <BsFillPeopleFill className="text-5xl lg:text-6xl text-white mt-[1rem] transition duration-300 hover:scale-110 hover:text-yellow" />
+          <BsFillPeopleFill className="text-5xl lg:text-6xl text-white mt-[1rem] transition duration-300 hover:scale-[125%] hover:text-yellow" />
         </div>
       </section>
     </section>
