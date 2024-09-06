@@ -12,9 +12,9 @@ function NavBar() {
   const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
 
   return (
-    <section className="bg-header">
+    <section className="bg-header sticky top-0 z-50">
       <div className="w-full md:container mx-auto">
-        <nav className="flex flex-col md:flex-row w-full h-auto bg-header py-2 relative">
+        <nav className="flex flex-col md:flex-row w-full h-auto bg-transparent backdrop-blur-lg py-2 relative">
           <div className="flex items-center justify-between p-4 md:p-6">
             <img
               src="./src/assets/img/powerzone_logo.png"
@@ -46,12 +46,12 @@ function NavBar() {
           <div
             className={`md:flex ${
               isVisible ? "block" : "hidden"
-            } md:items-center md:justify-between w-full`}
+            } md:items-center md:justify-evenly w-full h-screen md:h-auto`}
           >
-            <menu className="flex flex-col md:flex-row md:space-x-8 md:ml-auto text-center md:text-left relative">
+            <menu className="flex flex-col md:flex-row md:space-x-3 md:ml-auto text-center md:text-center relative">
               <a
                 href="#"
-                className="relative flex items-center text-white text-xl m-4 md:m-6 hover:text-yellow group"
+                className="relative flex items-center text-white text-xl m-2 md:m-2 hover:text-yellow group"
               >
                 <span className="relative z-10">Inicio</span>
                 <span className="absolute left-0 bottom-[-10px] w-full h-[2px] bg-yellow transform scale-x-0 transition-transform duration-300 ease-out group-hover:scale-x-100"></span>
@@ -68,7 +68,7 @@ function NavBar() {
                 </a>
                 {/* Dropdown menu */}
                 <div
-                  className={`absolute left-0 mt-3.5 w-full md:w-48 bg-white text-black border border-gray-200 shadow-lg transform transition-opacity duration-300 ease-out ${
+                  className={`absolute left-0 mt-3.5 w-full md:w-48 bg-slate-200 text-black shadow-lg transform transition-opacity duration-300 ease-out ${
                     isDropdownOpen
                       ? "opacity-80 translate-y-0"
                       : "opacity-0 translate-y-[-10px]"
@@ -78,7 +78,7 @@ function NavBar() {
                     <li>
                       <a
                         href="#"
-                        className="block px-4 py-2 hover:bg-gray-200 hover:bg-yellow hover:text-white"
+                        className="text-lg block px-4 py-2 hover:bg-gray-200 hover:bg-yellow hover:text-white"
                       >
                         Locales
                       </a>
@@ -86,7 +86,7 @@ function NavBar() {
                     <li>
                       <a
                         href="#"
-                        className="block px-4 py-2 hover:bg-gray-200 hover:bg-yellow hover:text-white"
+                        className="text-lg block px-4 py-2 hover:bg-gray-200 hover:bg-yellow hover:text-white"
                       >
                         Trainers
                       </a>
@@ -94,7 +94,7 @@ function NavBar() {
                     <li>
                       <a
                         href="#"
-                        className="block px-4 py-2 hover:bg-gray-200 hover:bg-yellow hover:text-white"
+                        className="text-lg block px-4 py-2 hover:bg-gray-200 hover:bg-yellow hover:text-white"
                       >
                         Planes
                       </a>
