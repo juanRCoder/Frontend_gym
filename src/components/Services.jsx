@@ -8,7 +8,7 @@ function Services() {
   return (
     <>
     <div className="bg-dark py-[4rem] w-max-[59rem]">
-      <section className="container mx-auto flex flex-col lg:flex-row justify-between space-y-[2rem] lg:space-y-0 px-4 lg:px-8 text-white">
+      <section className="container mx-auto grid grid-cols-2 md:grid-cols-4 gap-1 px-1 space-y-3 lg:px-2 text-white">
         <section className="flex flex-col items-center">
           <h2 className="text-base lg:text-lg text-center">
             TU ELIGES TU HORARIO
