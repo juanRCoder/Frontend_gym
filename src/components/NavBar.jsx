@@ -53,16 +53,12 @@ function NavBar() {
               <span className="relative mr-9">
                 <MdClose
                   className={`mt-2 absolute transition-transform duration-700 ease-in-out ${
-                    isVisible
-                      ? "rotate-0 opacity-100"
-                      : "rotate-90 opacity-0"
+                    isVisible ? "rotate-0 opacity-100" : "rotate-90 opacity-0"
                   }`}
                 />
                 <HiMenuAlt2
                   className={`absolute transition-transform duration-700 ease-in-out ${
-                    isVisible
-                      ? "opacity-0"
-                      : "opacity-100"
+                    isVisible ? "opacity-0" : "opacity-100"
                   }`}
                 />
               </span>
@@ -104,9 +100,9 @@ function NavBar() {
                   <MdOutlineKeyboardArrowDown className="ml-2 text-xl" />
                   <span className="absolute left-0 bottom-[-10px] w-full h-[2px] bg-yellow transform scale-x-0 transition-transform duration-300 ease-out group-hover:scale-x-100"></span>
                 </a>
-                {/* Dropdown menu */}
+                {/* Dropdown menu: Se agregó el efecto backdrop-blur-lg y cambio el color del fondo por bg-slate-200/70 */}
                 <div
-                  className={`absolute left-0 mt-3.5 w-full md:w-48 bg-slate-200 text-black shadow-lg transform transition-opacity duration-300 ease-out ${
+                  className={`absolute left-0 mt-3.5 w-full md:w-48 bg-slate-200/70 backdrop-blur-lg text-black shadow-lg transform transition-opacity duration-300 ease-out ${
                     isDropdownOpen
                       ? "opacity-80 translate-y-0"
                       : "opacity-0 translate-y-[-10px]"
