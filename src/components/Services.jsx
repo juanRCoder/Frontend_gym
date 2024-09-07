@@ -6,8 +6,8 @@ import { BsFillPeopleFill } from "react-icons/bs";
 
 function Services() {
   return (
-    <section className="bg-dark py-[4rem] w-max-7xl mx-auto">
-      <section className="container mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 px-4 lg:px-8 text-white">
+    <section className="bg-dark py-[4rem] w-max-[59rem]">
+      <section className="container mx-auto grid grid-cols-2 md:grid-cols-4 gap-1 px-1 lg:px-2 text-white">
         <div className="flex flex-col items-center text-center">
           <h2 className="text-base lg:text-lg">TU ELIGES TU HORARIO</h2>
           <HiOutlineCalendar className="text-5xl lg:text-6xl text-yellow mt-[1rem] transition duration-300 hover:scale-[125%] hover:rotate-[0.5deg]" />
