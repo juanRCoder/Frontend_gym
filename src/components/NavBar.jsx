@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { IoCartOutline } from "react-icons/io5";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import { HiMenuAlt2 } from "react-icons/hi";
@@ -7,48 +7,86 @@ import { MdClose } from "react-icons/md";
 function NavBar() {
   const [isVisible, setIsVisible] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const toggleMenu = () => setIsVisible(!isVisible);
   const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <section className="bg-header sticky top-0 z-50">
+    <section
+      className={`${
+        isScrolled ? "bg-white/30 backdrop-blur-lg" : "bg-header"
+      } sticky top-0 z-50 transition-all duration-500`}
+    >
       <div className="w-full md:container mx-auto">
-        <nav className="flex flex-col md:flex-row w-full h-auto bg-transparent backdrop-blur-lg py-2 relative">
+        <nav className="flex flex-col md:flex-row w-full h-auto py-2 relative">
           <div className="flex items-center justify-between p-4 md:p-6">
+            {/* Logo Principal */}
             <img
               src="./src/assets/img/powerzone_logo.png"
-              className="max-w-[10rem] h-auto md:max-w-[12rem]"
+              className={`max-w-[10rem] ml-6 h-auto md:max-w-[12rem] ${
+                isVisible ? "hidden" : "block"
+              }`}
               alt="Logo PowerZone"
             />
+            {/* Botón de Menú */}
             <button
-              className="md:hidden text-white text-3xl"
+              className="md:hidden text-white text-3xl relative"
               onClick={toggleMenu}
             >
-              <span className="relative left-[-40px] bottom-[15px]">
+              <span className="relative mr-9">
                 <MdClose
-                  className={`absolute transition-transform duration-700 ease-in-out ${
+                  className={`mt-2 absolute transition-transform duration-700 ease-in-out ${
                     isVisible
-                      ? "hover:scale-100 hover:rotate-90 hover:opacity-70"
-                      : "scale-100 rotate-90 opacity-0"
+                      ? "rotate-0 opacity-100"
+                      : "rotate-90 opacity-0"
                   }`}
                 />
                 <HiMenuAlt2
                   className={`absolute transition-transform duration-700 ease-in-out ${
                     isVisible
-                      ? "hover: opacity-0"
+                      ? "opacity-0"
                       : "opacity-100"
                   }`}
                 />
               </span>
             </button>
           </div>
+          {/* Menú y Logo Alternativo en Pantallas Móviles */}
           <div
-            className={`md:flex ${
+            className={`${
               isVisible ? "block" : "hidden"
-            } md:items-center md:justify-evenly w-full h-screen md:h-auto`}
+            } md:flex md:items-center md:justify-evenly w-full h-screen md:h-auto`}
           >
-            <menu className="flex flex-col md:flex-row md:space-x-3 md:ml-auto text-center md:text-center relative">
+            <div
+              className={`flex flex-col items-center justify-center ${
+                isVisible ? "space-y-8" : "space-x-3"
+              } md:flex-row md:space-x-3 md:ml-auto text-center h-full`}
+            >
+              {/* Logo Alternativo en Pantallas Móviles */}
+              <img
+                src="./src/assets/img/powerzone_logo.png"
+                className={`${
+                  isVisible ? "block mb-10 max-w-[15rem] h-auto" : "hidden"
+                } md:hidden transition-transform duration-500`}
+                alt="Logo PowerZone"
+              />
               <a
                 href="#"
                 className="relative flex items-center text-white text-xl m-2 md:m-2 hover:text-yellow group"
@@ -110,7 +148,7 @@ function NavBar() {
                 <span className="relative z-10">Tienda</span>
                 <span className="absolute left-0 bottom-[-10px] w-full h-[2px] bg-yellow transform scale-x-0 transition-transform duration-300 ease-out group-hover:scale-x-100"></span>
               </a>
-            </menu>
+            </div>
           </div>
         </nav>
       </div>
