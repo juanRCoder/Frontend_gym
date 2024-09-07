@@ -4,9 +4,9 @@ import Services from "./Services";
 
 function AboutUs() {
   return (
-    <>
-      <Services className="md:w-[59rem] mx-auto" />
-      <div className="flex flex-col md:w-[59rem] mx-auto lg:flex-row bg-black justify-center gap-x-[10rem] lg:space-x-[2rem] space-y-8 lg:space-y-0 p-8 lg:p-8">
+    <div className="bg-black w-full">
+      <Services className="md:w-full mx-auto" />
+      <div className="flex flex-col md:max-w-[59rem] mx-auto lg:flex-row bg-black justify-center lg:space-x-[2rem] space-y-8 lg:space-y-0 p-8 lg:p-8">
         <div className="text-white w-full lg:w-[30rem] mt-[2rem] lg:mt-[3rem] mb-[2rem] lg:mb-[5rem] text-base lg:text-lg">
           <p className="text-lg lg:text-xl" style={{ lineHeight: "2.5rem" }}>
             Somos el resultado de un sueño que comenzó con una simple idea:
@@ -29,7 +29,7 @@ function AboutUs() {
           alt="Trainer"
         />
       </div>
-    </>
+    </div>
   );
 }
 
