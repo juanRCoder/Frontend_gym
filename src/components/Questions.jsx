@@ -28,9 +28,8 @@ function Questions() {
     }
   }
   return (
-    <article className='min-h-screen flex mx-auto justify-center bg-black '>
+    <article className='min-h-screen flex mx-auto justify-center bg-black'>
       <section className='w-[59rem] mx-auto'>
-
         <section className='mt-12 flex flex-col mx-auto h-24 w-11/12 '>
           <div className='w-20 h-0.5 bg-[color:var(--yellow)]'></div>
           <h3 className='text-4xl font-bold text-left mt-3 text-white'>PREGUNTAS FRECUENTES</h3>
@@ -51,8 +50,6 @@ function Questions() {
             <div className='bg-[#222932] rounded-b-lg mt-2 h-3/4'> <p className='p-3  text-2xl z-10 text-[color:var(--white)]'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum reiciendis, explicabo ad molestiae est sequi dolore aliquam voluptatibus nisi expedita id officia esse adipisci, aspernatur quia! Nobis maiores officiis consectetur!</p> </div>
           </section>
         </section>
-
-
       </section>
     </article>
   )
