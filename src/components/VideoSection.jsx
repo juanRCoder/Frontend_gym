@@ -25,16 +25,17 @@ function VideoSection() {
           type="video/mp4"
         />
       </video>
-      <div className="absolute inset-0 bg-black opacity-40"></div>
-      <div className="absolute bottom-0 mb-8 lg:mb-36 xl:mb-48 left-10 lg:left-16 xl:left-36 flex flex-col gap-4 p-2 w-44 md:w-60 lg:w-72 xl:w-96">
-        <hr className="w-1/2 border-2 border-yellow rounded-full" />
-        <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-5xl font-medium uppercase text-white xl:leading-tight">
-          Hard Rock Game. Time to Change
-        </h1>
-        <button className="text-sm flex items-center justify-center gap-2 sm:text-md md:text-lg lg:text-xl xl:text-3xl font-medium bg-yellow rounded-full uppercase px-2 py-1 lg:p-2 w-28 sm:w-32 md:w-44 lg:w-72 xl:w-full hover:bg-white transition-all duration-300 ease-in-out">
-          Conoce más {thunderLogo}
-        </button>
-      </div>
+      <section className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 outline outline-1 outline-red-400 w-full bg-transparent max-w-6xl ">
+        <div className="mb-8 lg:mb-36 xl:mb-48 left-10 lg:left-16 xl:left-36 flex flex-col gap-4 p-2 w-44 md:w-60 lg:w-72 xl:w-96">
+          <hr className="w-1/2 border-2 border-yellow rounded-full" />
+          <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-5xl font-medium uppercase text-white xl:leading-tight">
+            Hard Rock Game. Time to Change
+          </h1>
+          <button className="text-sm flex items-center justify-center gap-2 sm:text-md md:text-lg lg:text-xl xl:text-3xl font-medium bg-yellow rounded-full uppercase px-2 py-1 lg:p-2 w-28 sm:w-32  xl:w-full hover:bg-white transition-all duration-300 ease-in-out">
+            Conoce más {thunderLogo}
+          </button>
+        </div>
+      </section>
     </section>
   );
 }
