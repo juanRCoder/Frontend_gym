@@ -34,7 +34,6 @@ function Services({ className }) {
               </h2>
               <BsFillPeopleFill className="text-5xl lg:text-6xl text-yellow mt-[1rem] transition duration-300 hover:scale-[125%] hover:rotate-[0.5deg] hover:text-yellow" />
             </section>
->>>>>>> 97e87e2a43a59b29fe1bc3da77d888f81355824a
           </section>
         </div>
       </section>

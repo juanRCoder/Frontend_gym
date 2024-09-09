@@ -1,12 +1,11 @@
-
 import Trainer from "../assets/img/trainer_home.png";
 import Services from "./Services";
-import {PropTypes, string} from "prop-types";
+import { PropTypes, string } from "prop-types";
 
 function AboutUs({ className }) {
   return (
     <>
-      <Services/>
+      <Services />
       <section className="flex justify-center bg-black">
         <div className="md:max-w-6xl flex flex-col lg:flex-row justify-center gap-x-[10rem] lg:space-x-[2rem] space-y-8 lg:space-y-0 p-8 lg:p-8">
           <div className="text-white w-full lg:w-[30rem] mt-[2rem] lg:mt-[3rem] mb-[2rem] lg:mb-[5rem] text-base lg:text-lg">
@@ -30,7 +29,6 @@ function AboutUs({ className }) {
             src={Trainer}
             alt="Trainer"
           />
->>>>>>> 97e87e2a43a59b29fe1bc3da77d888f81355824a
         </div>
       </section>
     </>
@@ -38,7 +36,7 @@ function AboutUs({ className }) {
 }
 
 AboutUs.propTypes = {
-  className: string
+  className: string,
 };
 
 export default AboutUs;
