@@ -3,11 +3,12 @@ import { HiOutlineCalendar } from "react-icons/hi";
 import { BsFire } from "react-icons/bs";
 import { IoIosFitness } from "react-icons/io";
 import { BsFillPeopleFill } from "react-icons/bs";
+import { PropTypes, string } from "prop-types";
 
-function Services() {
+function Services({ className }) {
   return (
     <>
-      <div className="bg-dark py-[4rem]">
+      <div className={`${className} bg-dark py-[4rem]`}>
         <section className="container mx-auto grid grid-cols-2 md:grid-cols-4 px-1 space-x-1 space-y-[0.2rem] text-white">
           <section className="flex flex-col items-center">
             <h2 className="text-base lg:text-lg text-center">
@@ -38,5 +39,9 @@ function Services() {
     </>
   );
 }
+
+Services.propTypes = {
+  className: string,
+};
 
 export default Services;

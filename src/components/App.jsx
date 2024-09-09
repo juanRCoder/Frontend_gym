@@ -7,7 +7,7 @@ function App() {
     <>
       <VideoSection />
       <AboutUs />
-      <TestimonialUsers className={'h-[26rem] w-[75rem]'} />
+      <TestimonialUsers className={"h-[26rem] max-w-6xl"} />
     </>
   );
 }

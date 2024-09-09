@@ -20,7 +20,7 @@ export const TestimonialUsers = ({ url_image, className }) => {
                </p>
             </div>
 
-            <article className='w-[80%] md:w-[50rem] m-auto overflow-hidden md:overflow-visible'>
+            <article className=''>
                {
                   <CustomSlider
                      data={dataTestimonios}

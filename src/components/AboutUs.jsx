@@ -1,11 +1,12 @@
 import React from "react";
 import Trainer from "../assets/img/trainer_home.png";
 import Services from "./Services";
+import {PropTypes, string} from "prop-types";
 
-function AboutUs() {
+function AboutUs({ className }) {
   return (
     <>
-      <Services className="md:w-[59rem] mx-auto" />
+      <Services className={`md:w-[59rem] mx-auto`} />
       <div className="flex flex-col md:w-[59rem] mx-auto lg:flex-row bg-black justify-center gap-x-[10rem] lg:space-x-[2rem] space-y-8 lg:space-y-0 p-8 lg:p-8">
         <div className="text-white w-full lg:w-[30rem] mt-[2rem] lg:mt-[3rem] mb-[2rem] lg:mb-[5rem] text-base lg:text-lg">
           <p className="text-lg lg:text-xl" style={{ lineHeight: "2.5rem" }}>
@@ -32,5 +33,9 @@ function AboutUs() {
     </>
   );
 }
+
+AboutUs.propTypes = {
+  className: string
+};
 
 export default AboutUs;
