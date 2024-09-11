@@ -7,7 +7,7 @@ import { BsFillPeopleFill } from "react-icons/bs";
 function Services() {
   return (
     <>
-      <div className="bg-dark py-[4rem] w-max-[59rem]">
+      <div className="bg-dark py-[4rem]">
         <section className="container mx-auto grid grid-cols-2 md:grid-cols-4 px-1 space-x-1 space-y-[0.2rem] text-white">
           <section className="flex flex-col items-center">
             <h2 className="text-base lg:text-lg text-center">
