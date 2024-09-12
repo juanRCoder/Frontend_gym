@@ -1,4 +1,5 @@
 import AboutUs from "./AboutUs";
+import Questions from "./Questions";
 import VideoSection from "./VideoSection";
 
 function App() {
@@ -6,6 +7,7 @@ function App() {
     <>
       <VideoSection />
       <AboutUs />
+      <Questions/>
     </>
   );
 }
