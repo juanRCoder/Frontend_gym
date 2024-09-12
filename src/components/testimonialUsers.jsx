@@ -35,7 +35,3 @@ TestimonialUsers.propTypes = {
    url_image: string,
    className: string,
 };
-
-// Valores por defecto para las props
-
-
