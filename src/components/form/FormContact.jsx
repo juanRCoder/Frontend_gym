@@ -11,6 +11,7 @@ function FormContact() {
     handleSubmit,
   } = useForm();
 
+  // Datos a enviar al backend
   const onSubmit = (data) => {
     console.log(data);
   };
