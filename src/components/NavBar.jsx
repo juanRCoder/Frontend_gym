@@ -34,7 +34,7 @@ function NavBar() {
         isScrolled ? "bg-white/30 backdrop-blur-lg" : "bg-header"
       } sticky top-0 z-50 transition-all duration-500`}
     >
-      <div className="w-full md:container mx-auto">
+      <div className="mx-auto max-w-6xl">
         <nav className="flex flex-col md:flex-row w-full h-auto py-2 relative">
           <div className="flex items-center justify-between p-4 md:p-6">
             {/* Logo Principal */}

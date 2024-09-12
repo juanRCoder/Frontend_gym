@@ -18,22 +18,24 @@ function VideoSection() {
   );
 
   return (
-    <section className="min-h-40 lg:h-screen relative">
+    <section className="h-[570px] relative">
       <video autoPlay loop muted className="w-full h-full object-cover">
         <source
           src="https://res.cloudinary.com/dgfkry5fw/video/upload/v1725319178/6388397-uhd_3840_2160_25fps_gogmcc.mp4"
           type="video/mp4"
         />
       </video>
-      <section className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 outline outline-1 outline-red-400 w-full bg-transparent max-w-6xl ">
-        <div className="mb-8 lg:mb-36 xl:mb-48 left-10 lg:left-16 xl:left-36 flex flex-col gap-4 p-2 w-44 md:w-60 lg:w-72 xl:w-96">
+      <section className="absolute left-1/2 -translate-x-1/2 bottom-0 w-full max-w-6xl mx-auto flex justify-start">
+        <div className="relative h-20 bottom-0 mb-20 lg:mb-36 xl:mb-48 flex flex-col gap-4  md:w-60 lg:w-72 xl:w-96">
           <hr className="w-1/2 border-2 border-yellow rounded-full" />
-          <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-5xl font-medium uppercase text-white xl:leading-tight">
+          <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-5xl  uppercase text-white xl:leading-tight">
             Hard Rock Game. Time to Change
           </h1>
-          <button className="text-sm flex items-center justify-center gap-2 sm:text-md md:text-lg lg:text-xl xl:text-3xl font-medium bg-yellow rounded-full uppercase px-2 py-1 lg:p-2 w-28 sm:w-32  xl:w-full hover:bg-white transition-all duration-300 ease-in-out">
-            Conoce más {thunderLogo}
-          </button>
+          <div>
+            <button className="flex items-center gap-2 sm:text-md md:text-lg lg:text-3xl font-medium bg-yellow rounded-full uppercase px-14 py-3 hover:bg-white transition">
+              Conoce más {thunderLogo}
+            </button>
+          </div>
         </div>
       </section>
     </section>
