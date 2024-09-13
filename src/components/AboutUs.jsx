@@ -6,8 +6,8 @@ function AboutUs() {
   return (
     <>
       <Services/>
-      <section className="flex justify-center bg-black">
-        <div className="md:max-w-6xl flex flex-col lg:flex-row justify-center gap-x-[10rem] lg:space-x-[2rem] space-y-8 lg:space-y-0 p-8 lg:p-8">
+      <section className="bg-black">
+        <div className="max-w-6xl flex flex-col lg:flex-row justify-between gap-x-[10rem] lg:space-x-[2rem] space-y-8 lg:space-y-0 m-auto">
           <div className="text-white w-full lg:w-[30rem] mt-[2rem] lg:mt-[3rem] mb-[2rem] lg:mb-[5rem] text-base lg:text-lg">
             <p className="text-lg lg:text-xl" style={{ lineHeight: "2.5rem" }}>
               Somos el resultado de un sueño que comenzó con una simple idea:

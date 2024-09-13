@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { IoCartOutline } from "react-icons/io5";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import { HiMenuAlt2 } from "react-icons/hi";
@@ -34,13 +34,13 @@ function NavBar() {
         isScrolled ? "bg-white/30 backdrop-blur-lg" : "bg-header"
       } sticky top-0 z-50 transition-all duration-500`}
     >
-      <div className="w-full md:container mx-auto">
+      <div className="m-auto max-w-6xl">
         <nav className="flex flex-col md:flex-row w-full h-auto py-2 relative">
-          <div className="flex items-center justify-between p-4 md:p-6">
+          <div className="flex items-center justify-between md:p-6">
             {/* Logo Principal */}
             <img
               src="./src/assets/img/powerzone_logo.png"
-              className={`max-w-[10rem] ml-6 h-auto md:max-w-[12rem] ${
+              className={`max-w-[10rem] h-auto md:max-w-[12rem] ${
                 isVisible ? "hidden" : "block"
               }`}
               alt="Logo PowerZone"
