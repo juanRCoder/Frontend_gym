@@ -2,7 +2,7 @@ function InfoContact() {
   return (
     <div className="h-full w-1/2 px-16">
       <div className="w-[496px]">
-        <h2 className="text-yellow text-[3rem] pb-10">
+        <h2 className="text-yellow text-[2.5rem] pb-10">
           ¿Listo para transformar tu vida?
         </h2>
         <div className="text-white text-2xl leading-snug">
