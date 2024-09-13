@@ -1,11 +1,11 @@
 function InfoContact() {
   return (
-    <div className="h-full w-1/2 px-16">
-      <div className="w-[496px]">
-        <h2 className="text-yellow text-[2.5rem] pb-10">
+    <div className="h-full sm:w-1/2 lg:px-16">
+      <div className="lg:w-[496px]">
+        <h2 className="text-yellow text-3xl sm:text-4xl lg:text-5xl lg:leading-snug pb-10">
           ¿Listo para transformar tu vida?
         </h2>
-        <div className="text-white text-2xl leading-snug">
+        <div className="text-white text-lg sm:text-xl md:text-2xl leading-snug">
           <p>
             ¡Nos encantaría ayudarte a alcanzar tus
             <br /> objetivos de salud y fitness! <br />
