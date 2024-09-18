@@ -6,6 +6,7 @@ import { FaInstagramSquare } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import LinkFooter from "./LinkFooter";
 
+
 function GroupLinkFooter() {
   return (
     <section className="lg:pl-16 md:grid-cols-3 sm:pl-12 sm:grid-cols-2 xs:grid-cols-2 grid grid-cols-1 py-8 gap-6 text-lg">
