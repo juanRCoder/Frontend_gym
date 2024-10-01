@@ -13,7 +13,7 @@ function Questions({question , response}) {
       <Accordion className="bg-black" type="single" collapsible>
         <AccordionItem value="item-1" className='bg-dark mb-4 cursor-pointer rounded-md w-[100%] ' >
           <AccordionTrigger className="text-[color:var(--yellow)] text-3xl font-bold ml-4 oswald-medium">{question} </AccordionTrigger>
-          <AccordionContent className="p-3 text-2xl text-[color:var(--white)]">
+          <AccordionContent className="bg-[#222932] p-3 text-2xl text-[color:var(--white)]">
             {response}
           </AccordionContent>
         </AccordionItem>
