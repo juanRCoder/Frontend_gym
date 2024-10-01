@@ -28,9 +28,9 @@ function Accordeon() {
     <div className='bg-black min-h-screen '>
       <section className='max-w-6xl m-auto'>
 
-      <section className='flex flex-col  h-24 w-11/12 '>
+      <section className='flex flex-col  h-24 w-11/12 sm: mb-6'>
           <div className='w-28 border-t-[3px] border-yellow '></div>
-          <h3 className='text-4xl font-bold text-left mt-3 text-white'>PREGUNTAS FRECUENTES</h3>
+          <h3 className='text-4xl font-bold text-left mt-3 text-white '>PREGUNTAS FRECUENTES</h3>
      </section>
   {
     FAQS.map( FAQ => <Questions key={FAQ.id} question={FAQ.question} response={FAQ.response}/> )
