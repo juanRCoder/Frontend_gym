@@ -8,7 +8,6 @@ function Layout() {
     <>
       <NavBar />
       <Outlet />
-      <Accordeon/>
       <Footer />
     </>
   );
