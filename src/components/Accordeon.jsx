@@ -6,17 +6,17 @@ function Accordeon() {
   const [FAQS , useFAQ] = useState([
     {
         id : 1,
-        question : "LISTO PARA TRANSFORMAR TU VIDA ?" ,
+        question : "¿Listo para transformar tu vida?" ,
         response: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis veniam magni modi harum ea illum veritatis saepe at nisi odio, ratione sint quos aut error maiores distinctio assumenda earum molestias!"
     },
     {
         id : 2,
-        question : "LISTO PARA TRANSFORMAR TU VIDA ?" ,
+        question : "¿Listo para transformar tu vida?" ,
         response: " Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis veniam magni modi harum ea illum veritatis saepe at nisi odio, ratione sint quos aut error maiores distinctio assumenda earum molestias!"
     },
     {
         id : 3,
-        question : "LISTO PARA TRANSFORMAR TU VIDA ?" ,
+        question : "¿Listo para transformar tu vida?" ,
         response: " Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis veniam magni modi harum ea illum veritatis saepe at nisi odio, ratione sint quos aut error maiores distinctio assumenda earum molestias!"
     }
 ])
@@ -25,7 +25,7 @@ function Accordeon() {
   
 
   return (
-    <div className='bg-black min-h-screen '>
+    <div className='bg-black pt-[96px] pb-[50px]'>
       <section className='max-w-6xl m-auto'>
 
       <section className='flex flex-col  h-24 w-11/12 sm: mb-6'>
@@ -40,4 +40,4 @@ function Accordeon() {
   )
 }
 
-export default Accordeon
+export default Accordeon;
