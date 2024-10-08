@@ -2,7 +2,7 @@ import RAY_DARK from "../assets/img/ray_day.png";
 
 function VideoSection() {
   return (
-    <section className="h-[750px] relative top-0">
+    <section className="h-[650px] relative top-0">
       <video autoPlay loop muted className="w-full h-full object-cover">
         <source
           src="https://res.cloudinary.com/dgfkry5fw/video/upload/v1725319178/6388397-uhd_3840_2160_25fps_gogmcc.mp4"

@@ -28,8 +28,8 @@ function NavBar() {
         isScrolled ? "bg-white/30 backdrop-blur-lg" : "bg-header"
       }`}
     >
-      <header className="max-w-7xl mx-7 lg:mx-auto lg:w-[1085px]">
-        <div className="flex justify-between items-center py-5">
+      <header className="m-auto max-w-7xl">
+        <div className="flex justify-between items-center p-5">
           {/* Logo Principal */}
           <img
             src={powerLogo}

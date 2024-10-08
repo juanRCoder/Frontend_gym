@@ -3,6 +3,7 @@ import { CustomSlider } from './slider/CustomSlider';
 import { TestimonialCard } from './cards/TestimonialCard';
 import { dataTestimonios } from '../data/dataTestimonios';
 
+
 export const TestimonialUsers = ({ url_image, className }) => {
    return (
       <section className={`text-white w-full relative`}>
@@ -25,6 +26,7 @@ export const TestimonialUsers = ({ url_image, className }) => {
                   ChildComponent={TestimonialCard}
                />
             }
+           
          </div>
       </section>
    );
