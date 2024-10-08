@@ -9,7 +9,7 @@ export default function NavigationBar() {
   const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
 
   return (
-    <section className="hidden text-white text-xl sm:flex items-center gap-5 select-none">
+    <section className="hidden text-white text-xl sm:text-lg sm:flex items-center gap-2 select-none">
       <a className="hover:text-yellow cursor-pointer pr-4">Inicio</a>
       <div className="relative">
         <a
