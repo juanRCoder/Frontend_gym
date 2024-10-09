@@ -7,19 +7,19 @@ function Services() {
   return (
     <>
       <section className="bg-dark">
-        <div className="py-[4rem] max-w-6xl m-auto">
-          <section className="lg:flex lg:justify-between grid grid-cols-2 md:grid-cols-4">
+        <div className="px-[28px] lg:w-[1085px] sm:px-7 lg:px-0 py-[76px] max-w-7xl mx-auto w-full">
+        <section className="grid grid-cols-2 md:grid-cols-4 place-content-between mx-auto">
             {[
               ["TU ELIGES TU HORARIO", HiOutlineCalendar],
               ["PLANES PERSONALIZADOS", BsFire],
               ["EQUIPOS MODERNOS", IoIosFitness],
               ["TRAINERS PROFESIONALES", BsFillPeopleFill],
             ].map(([service, Component], i) => (
-              <section key={i} className="flex flex-col items-center gap-2">
-                <h2 className="text-base lg:text-lg text-yellow">
+              <section key={i} className="inline-flex flex-col items-center gap-4 ">
+                <Component className="text-yellow text-6xl sm:text-[86px]" />
+                <h2 className="text-white text-center text-lg sm:text-xl md:text-2xl px-0">
                   {service}
                 </h2>
-                <Component className="text-[5rem] text-white mt-[1rem] transition duration-300 hover:rotate-[0.5deg] hover:text-yellow" />
               </section>
             ))}
           </section>
