@@ -1,26 +1,19 @@
-import { HiOutlineCalendar } from "react-icons/hi";
-import { BsFire } from "react-icons/bs";
-import { IoIosFitness } from "react-icons/io";
-import { BsFillPeopleFill } from "react-icons/bs";
+import { dataServices } from "../data/dataServices";
 
 function Services() {
   return (
     <>
       <section className="bg-dark">
-        <div className="px-[28px] lg:w-[1085px] sm:px-7 lg:px-0 py-[76px] max-w-7xl mx-auto w-full">
-        <section className="grid grid-cols-2 md:grid-cols-4 place-content-between mx-auto">
-            {[
-              ["TU ELIGES TU HORARIO", HiOutlineCalendar],
-              ["PLANES PERSONALIZADOS", BsFire],
-              ["EQUIPOS MODERNOS", IoIosFitness],
-              ["TRAINERS PROFESIONALES", BsFillPeopleFill],
-            ].map(([service, Component], i) => (
-              <section key={i} className="inline-flex flex-col items-center gap-4 ">
-                <Component className="text-yellow text-6xl sm:text-[86px]" />
-                <h2 className="text-white text-center text-lg sm:text-xl md:text-2xl px-0">
-                  {service}
-                </h2>
-              </section>
+        <div className="m-auto max-w-7xl">
+          <section className="grid grid-cols-1 sm:flex justify-between gap-10 sm:gap-5 mx-8 lg:mx-24 py-20">
+            {dataServices.map((service) => (
+              <div key={service.id} className="sm:w-fit flex flex-col items-center gap-5">
+                <img 
+                  src={service.img} 
+                  className="h-[65px] w-[65px] object-contain"
+                />
+                <p className="text-[22px] text-white text-center">{service.name}</p>
+              </div>
             ))}
           </section>
         </div>

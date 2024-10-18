@@ -1,17 +1,22 @@
 import AboutUs from "./AboutUs";
+import Services from "./Services";
 import Accordeon from "./Accordeon";
 import Contact from "./Contact";
 import { TestimonialUsers } from "./testimonialUsers";
 import VideoSection from "./VideoSection";
+import '../index.css';
 
 function App() {
   return (
     <>
       <VideoSection />
+      <Services />
       <AboutUs />
-      <TestimonialUsers className={'md:h-[26rem] max-w-7xl'} />
-      <Accordeon/>
-      <Contact />
+      <TestimonialUsers />
+      <section className="bg-imagen">
+        <Accordeon />
+        <Contact />
+      </section>
     </>
   );
 }
