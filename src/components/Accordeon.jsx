@@ -1,43 +1,46 @@
-import React, { useState } from 'react'
-import Questions from './questions/Questions'
+import { useState } from "react";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "../lib/CustomAccodion";
+import { dataAccordeon } from "../data/dataAccordeon";
 
 function Accordeon() {
-
-  const [FAQS , useFAQ] = useState([
-    {
-        id : 1,
-        question : "¿Listo para transformar tu vida?" ,
-        response: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis veniam magni modi harum ea illum veritatis saepe at nisi odio, ratione sint quos aut error maiores distinctio assumenda earum molestias!"
-    },
-    {
-        id : 2,
-        question : "¿Listo para transformar tu vida?" ,
-        response: " Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis veniam magni modi harum ea illum veritatis saepe at nisi odio, ratione sint quos aut error maiores distinctio assumenda earum molestias!"
-    },
-    {
-        id : 3,
-        question : "¿Listo para transformar tu vida?" ,
-        response: " Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis veniam magni modi harum ea illum veritatis saepe at nisi odio, ratione sint quos aut error maiores distinctio assumenda earum molestias!"
-    }
-])
-
-
-  
+  const [active, setActive] = useState(false);
 
   return (
-    <div className='bg-black pt-[96px] pb-[50px]'>
-      <section className='max-w-6xl m-auto'>
-
-      <section className='flex flex-col  h-24 w-11/12 sm: mb-6'>
-          <div className='w-28 border-t-[3px] border-yellow '></div>
-          <h3 className='text-4xl font-bold text-left mt-3 text-white '>PREGUNTAS FRECUENTES</h3>
-     </section>
-  {
-    FAQS.map( FAQ => <Questions key={FAQ.id} question={FAQ.question} response={FAQ.response}/> )
-  }
-      </section>
-    </div>
-  )
+    <section className="py-20">
+      <div className="max-w-7xl m-auto">
+        <section className="flex flex-col w-11/12 my-10 mx-8 lg:mx-24">
+          <div className="relative w-fit tracking-wide space-y-2 mb-16">
+            <span className="block border-t-2 border-yellow w-[70%] rounded-md mb-6" />
+            <p className="text-2xl sm:text-3xl text-white">
+              PREGUNTAS <br />
+              FRECUENTES
+            </p>
+          </div>
+        </section>
+        {dataAccordeon.map((FAQ) => (
+          <Accordion key={FAQ.id} type="single" collapsible className=" mx-8 lg:mx-24">
+            <AccordionItem
+              value="item-1"
+              className={`bg-dark mb-8 rounded-[19px] ${ active ? "rounded-[19px]" : "" }`}
+              onClick={() => setActive(!active)}
+            >
+              <AccordionTrigger className="text-yellow text-2xl text-left sm:text-3xl font-medium py-6 px-5 flex flex-1 items-center justify-between">
+                {FAQ.question}
+              </AccordionTrigger>
+              <AccordionContent className="bg-[#222932] px-6 sm:px-12 py-6 text-lg sm:text-[22px] text-white leading-9 rounded-b-[19px]">
+                {FAQ.response}
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
+        ))}
+      </div>
+    </section>
+  );
 }
 
 export default Accordeon;
