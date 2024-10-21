@@ -1,14 +1,35 @@
- * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: "Oswald", sans-serif;
- }
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap");
 
- .bg-radial-gradient {
-    background-image: radial-gradient(
-      50% 50% at 50% 15%,
-      #313132 10%,
-      #000 100%);
-    background-color: aquamarine;
- }
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Oswald", sans-serif;
+}
+
+:root {
+  --dark: rgb(24, 29, 35);
+  --light-gray: rgba(234, 234, 235, 1);
+  --dark-mid: rgb(18, 16, 14);
+  --gray-mid: rgba(61, 61, 61, 1);
+  --gray: rgba(87, 90, 95, 1);
+  --white: rgba(255, 255, 255, 1);
+  --yellow: rgba(244, 175, 0, 1);
+  --header: hwb(0 5% 94%);
+}
+
+
+.bg-imagen {
+  background-image: url(./assets/img/BACKGROUND_GRADIENT_RAY.png);
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: cover;
+}
+
+.bg-layout {
+  background: linear-gradient(90deg, rgba(10,10,11,1) 0%, rgba(45,45,46,1) 25%, rgba(59,59,59,1) 50%, rgba(62,62,63,1) 75%, rgba(10,10,11,1) 100%);
+}
