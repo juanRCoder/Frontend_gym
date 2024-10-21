@@ -24,7 +24,7 @@ function NavBar() {
 
   return (
     <section
-      className={`fixed top-0 w-full z-50 transition-all duration-500 ${
+      className={`sticky top-0 w-full z-20 transition-all duration-500 ${
         isScrolled ? "bg-white/30 backdrop-blur-lg" : "bg-header"
       }`}
     >
