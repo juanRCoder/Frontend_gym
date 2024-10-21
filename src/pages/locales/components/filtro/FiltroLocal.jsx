@@ -177,7 +177,7 @@ FiltreMovil.propTypes = {
 
 const FiltreDesktop = ({ setParams }) => {
    return (
-      <div className='w-[25%] md:w-[20%] space-y-4 pb-8 relative z-10  border border-transparent hidden md:block'>
+      <div className='w-[25%] md:w-[20%] pb-8 relative z-10  border border-transparent hidden md:block space-y-10'>
 
          {/* <div className='w-[135%] 2xl:w-[230%] h-[100%] bg-[#000] absolute translate-x-[-25%] 2xl:translate-x-[-56%] -z-10 rounded-xl'> */}
          {/* </div> */}
@@ -185,7 +185,7 @@ const FiltreDesktop = ({ setParams }) => {
          <div className='space-x-10'>
             <ListFilter
                className='inline-block align-middle'
-               size={45}
+               size={35}
             />
             <span className='text-2xl align-middle'>
                Filtros
@@ -235,16 +235,16 @@ const FiltreList = ({ funcion, isMobile, dataFilter, setParams }) => {
    }
 
    return (
-      <div className='space-y-4'>
-         <fieldset className='space-y-4 text-xl md:font-light capitalize'>
-            <legend>
+      <div className='space-y-10'>
+         <fieldset className='space-y-8 text-xl md:font-light capitalize'>
+            <legend className='font-medium'>
                Servicios
             </legend>
             {
                services.map((service) => (
                   <label
                      key={service.id}
-                     className='block space-x-3 text-lg cursor-pointer'
+                     className='block space-x-3 text-lg cursor-pointer font-normal opacity-95'
                      htmlFor={`service-${service.id}`}
                   >
                      <input
@@ -263,14 +263,14 @@ const FiltreList = ({ funcion, isMobile, dataFilter, setParams }) => {
                ))
             }
          </fieldset>
-         <fieldset className='space-y-4 text-xl md:font-light capitalize'>
-            <legend>
+         <fieldset className='space-y-8 text-xl md:font-light capitalize'>
+            <legend className='font-medium'>
                clases
             </legend>
             {
                clases.map((clases) => (
                   <label
-                     className='block space-x-3 text-lg'
+                     className='block space-x-3 text-lg font-normal opacity-95'
                      htmlFor={`clases-${clases.id}`}
                      key={clases.id}
                   >
