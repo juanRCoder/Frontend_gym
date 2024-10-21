@@ -29,7 +29,7 @@ function NavBar() {
       }`}
     >
       <header className="m-auto max-w-7xl">
-        <div className="flex justify-between items-center p-5">
+        <div className="flex justify-between items-center py-5 mx-8 lg:mx-24">
           {/* Logo Principal */}
           <img
             src={powerLogo}

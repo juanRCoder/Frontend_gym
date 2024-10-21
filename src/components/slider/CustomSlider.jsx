@@ -30,7 +30,7 @@ export const CustomSlider = ({ data = [], ChildComponent, speed }) => {
    };
 
    return (
-      <div className='w-full mx-auto md:w-[80%] overflow-hidden md:overflow-visible' >
+      <div className='py-24 w-full mx-auto md:w-[80%] overflow-hidden md:overflow-visible' >
          <Splide options={options}>
             {data.map((item) => (
                <SplideSlide key={item.id}>
