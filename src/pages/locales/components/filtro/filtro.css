@@ -1,0 +1,27 @@
+input[type="checkbox"]{
+   appearance: none;
+   background-color: transparent;
+}
+input[type="checkbox"]::before {
+   content: '';
+   display: block;
+   width: 2rem;
+   height: 2rem;
+   border: 1px solid #fcad31;
+   border-radius: 25%;
+}
+
+input[type="checkbox"]:checked::before {
+   background-color: #fcad31;
+   background-image: url('src/assets/img/ray_day.png');
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: 70%;
+   opacity: 100%;
+   /* padding: 1rem; */
+   transition: background-color 0.3s ease-in-out;
+}
+input[type="checkbox"]:not(:checked)::before {
+   opacity: 90%;
+   background-color: transparent;
+}
