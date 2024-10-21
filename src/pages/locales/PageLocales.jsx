@@ -4,15 +4,19 @@ import { InputSearch } from './components/input';
 import { TitleCustom } from './components/texts';
 const PageLocales = () => {
    return (
-      <div className="w-full bg-radial-gradient text-white min-h-[200dvh] overflow-hidden pb-5">
-         <img
-            className="absolute opacity-15 select-none top-[8%] left-[18%] w-[40rem]"
-            alt="icono de rayo"
-            src="/src/assets/icon/ray-transparent.png"
-         />
+      <div className="relative w-full overflow-hidden bg-radial-gradient text-white min-h-[200dvh] pb-5">
 
-         <div className="relative w-[90%] max-w-[80rem] mx-auto space-y-10">
-            <section className="mt-24 space-y-8">
+         <div className="relative w-[90%] max-w-[80rem] mx-auto space-y-16">
+            <figure className="absolute z-0 md:-top-16 md:-left-5 opacity-30 select-none w-[20rem] md:w-[40rem] md:h-[43rem]" >
+               <img
+                  className="w-full h-full"
+                  alt="icono de rayo"
+                  src="/src/assets/icon/rayoIcon.png"
+                  width={120}
+               />
+               <div className="absolute inset-0 bg-gradient-to-l from-black/0 to-black/100"></div>
+            </figure>
+            <section className="relative mt-24 space-y-8">
                <TitleCustom
                   textPrimary={'Descubre nuestras'}
                   textSecondary={'Localidades'}
@@ -27,9 +31,9 @@ const PageLocales = () => {
                </div>
             </section>
 
-            <section className="flex justify-between items-center md:text-xl">
+            <section className="relative flex justify-between items-center md:text-xl">
                <label
-                  className="font-semibold md:text-2xl hidden md:block"
+                  className="font-medium md:text-2xl hidden md:block"
                   htmlFor='search'
                >¿Dónde quieres entrenar?
                </label>
