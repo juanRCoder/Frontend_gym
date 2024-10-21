@@ -1,14 +1,16 @@
 import { Locals } from "./components/card/Locals";
-import { FiltroLocal, InputSearch, TitleCustom } from "./components";
-
+import { FiltroLocal } from "./components/filtro";
+import { InputSearch } from './components/input';
+import { TitleCustom } from './components/texts';
 const PageLocales = () => {
    return (
       <div className="w-full bg-radial-gradient text-white min-h-[200dvh] overflow-hidden pb-5">
          <img
-            className="absolute opacity-15 select-none "
+            className="absolute opacity-15 select-none top-[8%] left-[18%] w-[40rem]"
             alt="icono de rayo"
-            src="/src/assets/icon/rayoIcon.png"
+            src="/src/assets/icon/ray-transparent.png"
          />
+
          <div className="relative w-[90%] max-w-[80rem] mx-auto space-y-10">
             <section className="mt-24 space-y-8">
                <TitleCustom
@@ -16,10 +18,10 @@ const PageLocales = () => {
                   textSecondary={'Localidades'}
                />
                <div className="md:text-[1.15rem] space-y-2 text-balance">
-                  <p className="text-center">
+                  <p className="text-center md:text-[1.25rem]">
                      Encuentra el gimnasio perfecto según tus preferencias. Ya sea que busques clases de baile, sesiones de Zumba llenas de energía, entrenamiento personalizado con un coach o un lugar para levantar pesas, nuestras localidades tienen todo lo que necesitas.
                   </p>
-                  <p className="text-[#f4af00] text-center">
+                  <p className="text-[#f4af00] text-center md:text-2xl">
                      Filtra por categoría y accede a entrenamientos diseñados para alcanzar tu vida fitness
                   </p>
                </div>
