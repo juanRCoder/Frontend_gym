@@ -144,7 +144,7 @@ export const InputSearch = () => {
          ref={divRef}
       >
          <input
-            className="w-[calc(100%-5%)] outline-none align-middle"
+            className="w-[calc(100%-5%)] outline-none align-middle placeholder:font-normal placeholder:opacity-90"
             value={location.search}
             onChange={(e) => changeSearch(e)}
             placeholder="Ingresa tu zona, ciudad o codigo postal"
