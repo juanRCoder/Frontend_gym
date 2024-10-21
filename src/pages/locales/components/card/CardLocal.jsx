@@ -12,7 +12,7 @@ export const CardLocal = ({ image, name, location, opening_end, opening_start, t
             />
          </figure>
          <div className="p-4 space-y-2 text-sm md:text-base">
-            <p className="text-lg md:text-xl">
+            <p className="text-xl md:text-xl font-medium">
                {name}
             </p>
             <p className="space-x-2">
@@ -21,7 +21,7 @@ export const CardLocal = ({ image, name, location, opening_end, opening_start, t
                   size={18}
                   color="#fcad31"
                />
-               <span className="align-middle">
+               <span className="align-middle font-light">
                   {location.address}, {location.city}, {location.country}
                </span>
             </p>
@@ -31,12 +31,12 @@ export const CardLocal = ({ image, name, location, opening_end, opening_start, t
                   size={18}
                   color="#fcad31"
                />
-               <span className="align-middle">
+               <span className="align-middle font-light">
                   {opening_start}am - {opening_end}pm
                </span>
             </p>
          </div>
-         <button className="bg-[#fcad31] text-[#000] uppercase font-semibold block md:text-lg w-fit mx-auto mt-auto p-1 px-5 rounded-3xl">
+         <button className="bg-[#fcad31] text-[#000] uppercase font-medium block md:text-lg w-fit mx-auto mt-auto p-1 px-5 rounded-3xl">
             ¡{textBt}!
          </button>
       </div>
