@@ -74,7 +74,7 @@ const testDataLocal = [
 
 export const Locals = () => {
    return (
-      <section className="flex-1 grid  gap-5 " style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(15rem, 1fr))' }}>
+      <section className="flex-1 grid gap-5 " style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(15rem, 1fr))' }}>
          {
             testDataLocal.map((local) => (
                <CardLocal
