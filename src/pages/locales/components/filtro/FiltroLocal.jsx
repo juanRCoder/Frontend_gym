@@ -150,7 +150,9 @@ const FiltreMovil = ({ handleOpenFilter, openFilter, setParams }) => {
                <X size={40} />
             </button>
 
-            <FiltreList funcion={filtreList} isMobile={true} dataFilter={dataFilter} />
+            <div className='overflow-y-auto'>
+               <FiltreList funcion={filtreList} isMobile={true} dataFilter={dataFilter} />
+            </div>
 
             <div className='space-y-4 w-full mt-auto'>
                <button className='bg-[#fcad31] text-black hover:opacity-90 rounded-lg p-3 text-center w-full'
@@ -248,7 +250,7 @@ const FiltreList = ({ funcion, isMobile, dataFilter, setParams }) => {
                      htmlFor={`service-${service.id}`}
                   >
                      <input
-                        className="cursor-pointer align-middle"
+                        className="align-middle"
                         type="checkbox"
                         name="service"
                         value={service.name}
@@ -270,12 +272,12 @@ const FiltreList = ({ funcion, isMobile, dataFilter, setParams }) => {
             {
                clases.map((clases) => (
                   <label
-                     className='block space-x-3 text-lg font-normal opacity-95'
+                     className='block space-x-3 text-lg cursor-pointer font-normal opacity-95'
                      htmlFor={`clases-${clases.id}`}
                      key={clases.id}
                   >
                      <input
-                        className="cursor-pointer align-middle"
+                        className="align-middle"
                         type="checkbox"
                         name="clase"
                         value={clases.name}
