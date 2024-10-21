@@ -1,7 +1,5 @@
 import { Locals } from "./components/card/Locals";
-import { FiltroLocal } from "./components/filtro";
-import { InputSearch } from "./components/input";
-import { TitleCustom } from "./components/texts";
+import { FiltroLocal, InputSearch, TitleCustom } from "./components";
 
 const PageLocales = () => {
    return (
