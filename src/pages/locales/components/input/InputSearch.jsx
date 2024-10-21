@@ -104,8 +104,8 @@ export const InputSearch = () => {
 
 
    const getLocation = () => {
-      if (navigator.geolocation) {
-         navigator.geolocation.getCurrentPosition((position) => {
+      if (window.navigator.geolocation) {
+         window.navigator.geolocation.getCurrentPosition((position) => {
             const { latitude, longitude } = position.coords;
 
             // consultar con la latitud y longitud obteniendo, nombre de ciudad etc
