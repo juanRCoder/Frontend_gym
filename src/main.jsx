@@ -4,6 +4,8 @@ import App from "./components/App";
 import "./assets/styles/index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./pages/Layout";
+import PageLocales from "./pages/locales/PageLocales";
+import './index.css'
 
 const router = createBrowserRouter([
   {
@@ -14,6 +16,10 @@ const router = createBrowserRouter([
         path: "/",
         element: <App />,
       },
+      {
+        path: "/locales",
+        element: <PageLocales />,
+      }
     ],
   },
 ]);
