@@ -4,17 +4,17 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "../lib/CustomAccodion";
-import { dataAccordeon } from "../data/dataAccordeon";
+} from "../../lib/CustomAccodion";
+import { dataAccordeon } from "../../data/dataAccordeon";
 
 function Accordeon() {
   const [active, setActive] = useState(false);
 
   return (
-    <section className="py-20">
+    <section className="py-20 relative z-50">
       <div className="max-w-7xl m-auto">
-        <section className="flex flex-col w-11/12 my-10 mx-8 lg:mx-24">
-          <div className="relative w-fit tracking-wide space-y-2 mb-16">
+        <section className="flex flex-col w-fit my-10 mx-8 lg:mx-24">
+          <div className="tracking-wide space-y-2 mb-16">
             <span className="block border-t-2 border-yellow w-[70%] rounded-md mb-6" />
             <p className="text-2xl sm:text-3xl text-white">
               PREGUNTAS <br />

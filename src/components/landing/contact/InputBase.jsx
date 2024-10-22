@@ -1,10 +1,10 @@
 import { string, PropTypes } from "prop-types";
 
-function InputBase({ label, type, placeholder, register, name }) {
+function InputText({ label, type, placeholder, register, name }) {
   return (
     <>
-      <div className="text-lg sm:text-xl md:text-3xl flex flex-col md:flex-row items-start gap-3 sm:gap-5 md:gap-14">
-        <label htmlFor={label} className="text-white block w-32 md:w-44">
+      <div className="text-lg sm:text-xl md:text-[22px] flex flex-col md:flex-row items-start gap-5">
+        <label htmlFor={label} className="text-white block w-32">
           {label}:
         </label>
         <input
@@ -20,7 +20,7 @@ function InputBase({ label, type, placeholder, register, name }) {
 }
 
 // PropTypes de react type
-InputBase.propTypes = {
+InputText.propTypes = {
   label: string,
   type: string,
   placeholder: string,
@@ -28,4 +28,4 @@ InputBase.propTypes = {
   name: PropTypes.string.isRequired,
 };
 
-export default InputBase;
+export default InputText;

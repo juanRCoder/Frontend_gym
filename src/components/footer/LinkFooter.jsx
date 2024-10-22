@@ -6,7 +6,7 @@ function LinkFooter({ destiny, link }) {
   return (
     <Link
       to={link}
-      className="flex hover:translate-x-1 items-center transition hover:font-semibold"
+      className="flex hover:translate-x-1 items-center transition hover:font-medium"
     >
       {<MdKeyboardArrowRight />}
       <p>{destiny}</p>

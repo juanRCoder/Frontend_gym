@@ -1,13 +1,13 @@
-import AboutUs from "./landing/AboutUs";
-import Services from "./landing/Services";
-import Accordeon from "./Accordeon";
-import Contact from "./landing/Contact";
-import { TestimonialUsers } from "./landing/testimonialUsers";
-import VideoSection from "./landing/VideoSection";
+import AboutUs from "../components/landing/AboutUs";
+import Services from "../components/landing/Services";
+import Accordeon from "../components/landing/Accordeon";
+import Contact from "../components/landing/Contact";
+import { TestimonialUsers } from "../components/landing/testimonialUsers";
+import VideoSection from "../components/landing/VideoSection";
 import backgroundIMG from '../assets/img/BACKGROUND_GRADIENT_RAY.png'
 import '../index.css';
 
-function App() {
+function Landing() {
   return (
     <>
       <VideoSection />
@@ -27,4 +27,4 @@ function App() {
   );
 }
 
-export default App;
+export default Landing;
