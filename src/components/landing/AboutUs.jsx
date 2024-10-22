@@ -1,4 +1,4 @@
-import Trainer from "../assets/img/TRAINNER_IMG.png";
+import Trainer from "../../assets/img/TRAINNER_IMG.png";
 
 function AboutUs() {
   return (

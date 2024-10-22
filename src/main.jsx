@@ -1,18 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./components/App";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Layout from "./pages/Layout";
+import Landing from "./pages/Landing";
+import LayoutLanding from "./layout/LayoutLanding";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Layout />,
+    element: <LayoutLanding />,
     children: [
       {
         path: "/",
-        element: <App />,
+        element: <Landing />,
       },
     ],
   },
