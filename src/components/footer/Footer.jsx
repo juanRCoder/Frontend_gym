@@ -10,7 +10,7 @@ import { FaInstagramSquare } from "react-icons/fa";
 
 function Footer() {
   return (
-    <footer className="bg-yellow pt-12 pb-5 sm:pt-28 relative">
+    <footer className="bg-yellow pt-12 pb-5 sm:pt-20 relative">
       <div className="max-w-7xl mx-auto">
         <article className="flex flex-col-reverse sm:flex-row gap-10 justify-between  mx-8 lg:mx-24">
           <section className="flex flex-col gap-4 text-lg">

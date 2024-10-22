@@ -56,7 +56,7 @@ function FormContact() {
             ENVIAR
           </button>
         </div>
-        <div className="text-white text-lg sm:text-xl md:text-[22px] pt-20">
+        <div className="text-white text-lg sm:text-xl md:text-[22px] pt-32">
         También puedes seguirnos en nuestras redes sociales para estar al tanto de nuestras promociones y eventos:
         <div className="flex gap-2 py-6">
           {[
