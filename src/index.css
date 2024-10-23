@@ -42,3 +42,7 @@
     #000 100%);
   background-color: aquamarine;
 }
+
+.hover_img_card:hover  img {
+  transform: scale(1.03);
+}
