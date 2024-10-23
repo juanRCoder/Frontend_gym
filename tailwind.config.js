@@ -38,6 +38,8 @@ export default {
   			yellow: 'var(--yellow)',
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
+			colorYellow: "#f4af00",
+			colorGreen: "#23c43d",
   		},
   		screens: {
   			xs: '400px',
