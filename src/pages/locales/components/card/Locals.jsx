@@ -1,93 +1,52 @@
+import { useLocales } from "@/hooks/useLocales";
 import { CardLocal } from "./CardLocal"
-
-
-const testDataLocal = [
-   {
-      "id": 1,
-      "name": "Gimnasio XYZ",
-      "description": "Un gimnasio con las mejores instalaciones",
-      "phone": "123456789",
-      "opening_start": "10:00:00",
-      "opening_end": "18:00:00",
-      "isActivate": true,
-      "image": "./src/assets/imgTemp/local1.jfif",
-      "location": {
-         "address": "Calle Principal #123",
-         "city": "Lima",
-         "country": "Peru"
-      },
-      "created_at": "2024-08-01T12:00:00Z",
-      "updated_at": "2024-08-01T12:00:00Z"
-   },
-   {
-      "id": 2,
-      "name": "Gimnasio XYZ",
-      "description": "Un gimnasio con las mejores instalaciones",
-      "phone": "123456789",
-      "opening_start": "10:00:00",
-      "opening_end": "18:00:00",
-      "isActivate": true,
-      "image": "./src/assets/imgTemp/local2.jfif",
-      "location": {
-         "address": "Calle Principal #123",
-         "city": "Lima",
-         "country": "Peru"
-      },
-      "created_at": "2024-08-01T12:00:00Z",
-      "updated_at": "2024-08-01T12:00:00Z"
-   },
-   {
-      "id": 3,
-      "name": "Gimnasio XYZ",
-      "description": "Un gimnasio con las mejores instalaciones",
-      "phone": "123456789",
-      "opening_start": "10:00:00",
-      "opening_end": "18:00:00",
-      "isActivate": true,
-      "image": "./src/assets/imgTemp/local3.jfif",
-      "location": {
-         "address": "Calle Principal #123",
-         "city": "Lima",
-         "country": "Peru"
-      },
-      "created_at": "2024-08-01T12:00:00Z",
-      "updated_at": "2024-08-01T12:00:00Z"
-   },
-   {
-      "id": 4,
-      "name": "Un gimnasio con las mejores instalaciones",
-      "description": "Un gimnasio con las mejores instalaciones",
-      "phone": "123456789",
-      "opening_start": "10:00:00",
-      "opening_end": "18:00:00",
-      "isActivate": true,
-      "image": "./src/assets/imgTemp/local3.jfif",
-      "location": {
-         "address": "Calle Principal #123",
-         "city": "Lima",
-         "country": "Peru"
-      },
-      "created_at": "2024-08-01T12:00:00Z",
-      "updated_at": "2024-08-01T12:00:00Z"
-   }
-]
+import { CardSkeletonLocal } from "@/components/cards/CardSkeletons";
+import { CustomPagination } from "../paginate/CustomPagination";
 
 export const Locals = () => {
+   const { localesQuery } = useLocales();
    return (
-      <section className="flex-1 grid gap-5 " style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(15rem, 1fr))' }}>
-         {
-            testDataLocal.map((local) => (
-               <CardLocal
-                  key={local.id}
-                  image={local.image}
-                  location={local.location}
-                  name={local.name}
-                  opening_end={local.opening_end}
-                  opening_start={local.opening_start}
-                  textBt={'Inscríbete ya'}
-               />
-            ))
-         }
-      </section>
+      <div className="w-full flex flex-col gap-10 min-h-[60dvh]">
+         <section
+            className="flex-1 grid gap-5 "
+            style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(15.5rem, 1fr))' }}
+         >
+            {
+               localesQuery.isLoading
+                  ? Array.from({ length: 6 }).map((_, index) => <CardSkeletonLocal key={index} />)
+                  : localesQuery.data.locals.length === 0
+                     ? <LocalNotFound />
+                     : localesQuery.data.locals.map((local) => (
+                        <CardLocal
+                           key={local.id}
+                           image={local.image}
+                           location={local.location}
+                           name={local.name}
+                           opening_end={local.opening_end}
+                           opening_start={local.opening_start}
+                           textBt={'Inscríbete ya'}
+                        />
+                     ))
+            }
+         </section>
+
+         <section className="mt-auto w-fit mx-auto">
+            <CustomPagination localesQuery={localesQuery} />
+         </section>
+      </div>
+   )
+}
+
+const LocalNotFound = () => {
+   return (
+      <div className="mt-8 w-fit mx-auto text-center space-y-4">
+         <img
+            className="mx-auto md:w-[15rem]"
+            src="./src/assets/img/localNoFound.webp"
+            alt="imagen no encontrado" />
+         <p className="text-lg">
+            No pudimos encontrar gimnasios disponibles
+         </p>
+      </div>
    )
 }

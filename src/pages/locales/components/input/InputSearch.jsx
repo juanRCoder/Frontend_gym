@@ -1,155 +1,75 @@
 import { Search, MapPin } from "lucide-react"
-import { useEffect, useRef, useState } from "react"
-import { useSearchParams } from "react-router-dom"
+import { useRef } from "react"
+import PropTypes from "prop-types"
+import { useParamQuery } from "@/hooks/useParams"
+import { useCloseContainer } from "@/hooks/useCloseContainer"
+import { useLocationUser } from "@/hooks/useLocation"
+import { useGetAdreesLocal } from "@/hooks/useGetAdreesLocal"
 
-const testDataLocations = [
-   {
-      "id": 1,
-      "address": "123 Main St",
-      "city": "Lima",
-      "country": "Peru",
-      "zip_code": 1000,
-   },
-   {
-      "id": 2,
-      "address": "456 Elm St",
-      "city": "Buenos Aires",
-      "country": "Argentina",
-      "zip_code": 2000,
-   },
-   {
-      "id": 3,
-      "address": "789 Oak St",
-      "city": "Bogotá",
-      "country": "Colombia",
-      "zip_code": 1101,
-   },
-   {
-      "id": 4,
-      "address": "101 Pine St",
-      "city": "Santiago",
-      "country": "Chile",
-      "zip_code": 8320000,
-   },
-   {
-      "id": 5,
-      "address": "202 Maple St",
-      "city": "Mexico City",
-      "country": "Mexico",
-      "zip_code": 5000,
+export const InputSearch = ({ className }) => {
+   //? Fetch a la api con tanstack-query
+   const { addressQuery } = useGetAdreesLocal()
+
+   const { isClose, setClose, containerRef, handleClickOutside } = useCloseContainer()
+
+   const { locationData, getGeolocation, setLocation } = useLocationUser()
+   const { deleteParams, setParams } = useParamQuery()
+
+   const filterAddressData = useRef([])
+   const arrayData = useRef([])
+   if (addressQuery.data) {
+      arrayData.current = addressQuery.data
    }
-]
-
-let arrayData = []
-testDataLocations.forEach((location) => {
-   arrayData.push(location.city, location.address, location.zip_code.toString(), location.country)
-})
-
-export const InputSearch = () => {
-   const [, setSearchParams] = useSearchParams();
-   const [suggestion, setSuggestion] = useState(false)
-   const [location, setLocation] = useState({
-      lat: '',
-      lon: '',
-      city: '',
-      address: '',
-      country: '',
-      zip_code: '',
-      search: '',
-   })
-   const divRef = useRef(null);
-   const locationsData = useRef([])
-
-   useEffect(() => {
-      document.addEventListener("mousedown", handleClickOutside);
-
-      // Limpiamos el listener cuando el componente se desmonta
-      return () => {
-         document.removeEventListener("mousedown", handleClickOutside);
-      };
-   }, []);
 
    const handleSuggestion = (bool) => {
-      locationsData.current = []
-      setSuggestion(bool ?? !suggestion)
+      filterAddressData.current = []
+      setClose(bool ?? !isClose)
    }
 
    const handleSelect = (value) => {
-      setLocation({ ...location, search: value });
-      setSuggestion(false);
-
-      const params = window.location.search;
-      const urlParams = new URLSearchParams(params);
-      urlParams.set('search', value);
-      const newParams = urlParams.toString();
-      setSearchParams(newParams);
+      value = value.trim().toLowerCase()
+      setLocation({ ...locationData, search: value });
+      setParams('search', value)
+      setClose(false);
    }
 
    const submitSearch = (e) => {
       e.preventDefault();
-      handleSelect(location.search)
-      if (location.search === '') {
-         const params = window.location.search;
-         const urlParams = new URLSearchParams(params);
-         urlParams.delete('search');
-         setSearchParams(urlParams);
+      handleSelect(locationData.search)
+
+      if (locationData.search === '') {
+         deleteParams('search')
       }
    }
-
-   const handleClickOutside = (event) => {
-      if (divRef.current && !divRef.current.contains(event.target)) {
-         setSuggestion(false);
-      }
-   };
-
-
-   const getLocation = () => {
-      if (window.navigator.geolocation) {
-         window.navigator.geolocation.getCurrentPosition((position) => {
-            const { latitude, longitude } = position.coords;
-
-            // consultar con la latitud y longitud obteniendo, nombre de ciudad etc
-            fetch(
-               `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${latitude}&lon=${longitude}`
-            )
-               .then((response) => response.json())
-               .then((data) => {
-                  setLocation({ lat: latitude, lon: longitude, city: data.address.city || data.address.town || 'Desconocido', address: data.address.road, country: data.address.country, zip_code: data.address.postcode, search: data.address.country + ', ' + data.address.road });
-               })
-               .catch(() => {
-                  return
-               });
-            handleClickOutside(true)
-         },
-            (error) => {
-               //TODO, Deberia enviar una alerta
-               console.error('Error al obtener la ubicación:', error);
-            }
-         );
-      }
+   const handelLocation = async () => {
+      handleClickOutside(false)
+      const getLocation = await getGeolocation()
+      setParams('search', getLocation)
    }
 
    const changeSearch = (e) => {
       const value = e.target.value
       if (value.trim().length <= 2) {
          // locationsData.current = []
-         return setLocation({ ...location, search: value })
+         return setLocation({ ...locationData, search: value })
       }
-      locationsData.current = arrayData.filter((item) => item.toLowerCase().includes(value.toLowerCase()))
-      setLocation({ ...location, search: value })
+      filterAddressData.current = arrayData.current.filter((item) => item.toLowerCase().includes(value.toLowerCase()))
+      setLocation({ ...locationData, search: value })
    }
-
    return (
-      <form className="relative w-full md:w-[75%] text-black bg-white rounded-xl py-2 px-6"
-         ref={divRef}
+      <form
+         className={`relative z-10 text-black bg-white w-full rounded-xl py-2 px-6 
+            ${className}`
+         }
+         ref={containerRef}
       >
          <input
-            className="w-[calc(100%-5%)] outline-none align-middle placeholder:font-normal placeholder:opacity-90"
-            value={location.search}
-            onChange={(e) => changeSearch(e)}
+            className="w-[calc(100%-5%)] align-middle outline-none placeholder:font-normal placeholder:opacity-90"
+            value={locationData.search}
             placeholder="Ingresa tu zona, ciudad o codigo postal"
             type="search"
             id="search"
+            onChange={(e) => changeSearch(e)}
             onClick={() => handleSuggestion(true)}
          />
          <button
@@ -157,36 +77,40 @@ export const InputSearch = () => {
             type="submit"
             onClick={submitSearch}
          >
-            <Search
-               className={`ml-auto md:w-8 md:h-8 `}
-            />
+            <Search className={`ml-auto md:w-8 md:h-8 `} />
          </button>
-         <div
-            className={`absolute bg-white top-[110%] left-0 right-0 rounded-xl ${suggestion ? 'block' : 'hidden'}`}
-         >
-            <ul className="space-y-1">
-               <li
-                  className="font-medium space-x-2 cursor-pointer hover:bg-[#0002] transition-colors px-4 py-2"
-                  onClick={() => getLocation()}
-               >
-                  <MapPin className="inline-block align-middle" />
-                  <span className="align-middle">Usa tu ubicación actual</span>
-               </li>
-               {
-                  locationsData.current.map((item) => (
-                     <li
-                        className="space-x-2 cursor-pointer hover:bg-[#0002] transition-colors px-4 py-2"
-                        key={'search' + item}
-                        onClick={() => handleSelect(item)}
-                     >
-                        <MapPin className="inline-block align-middle" />
-                        <span className="align-middle">{item}</span>
-                     </li>
-                  ))
-               }
-            </ul>
-         </div>
+
+         <ul className={`absolute top-[110%] left-0 right-0 bg-white rounded-xl space-y-1 
+            ${isClose ? 'block' : 'hidden'}`
+         }>
+            <li
+               className="font-medium cursor-pointer hover:bg-[#0002] px-4 py-2 space-x-2"
+               onClick={() => handelLocation()}
+            >
+               <MapPin className="inline-block align-middle" />
+               <span className="inline-block align-middle">
+                  Usa tu ubicación actual
+               </span>
+            </li>
+            {
+               filterAddressData.current.map((item) => (
+                  <li
+                     className="cursor-pointer hover:bg-[#0002] px-4 py-2 space-x-2"
+                     key={'search' + item}
+                     onClick={() => handleSelect(item)}
+                  >
+                     <MapPin className="inline-block align-middle" />
+                     <span className="inline-block align-middle">
+                        {item}
+                     </span>
+                  </li>
+               ))
+            }
+         </ul>
       </form>
    )
 }
 
+InputSearch.propTypes = {
+   className: PropTypes.string
+}
