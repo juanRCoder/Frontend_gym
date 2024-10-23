@@ -1,100 +1,114 @@
 import { ListFilter } from 'lucide-react';
+import './filtro.css'
+import { useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { X } from 'lucide-react';
 import PropTypes from 'prop-types';
+import { useFilter } from '../../hooks/useFilter';
 
-import { useFilter, useResponsiveFilter } from '@/hooks/useFilter';
-import { useParamQuery } from '@/hooks/useParams';
-import { useGetFilterLocal } from '@/hooks/useGetFilterLocal';
-import './filtro.css'
+const services = [
+   {
+      "id": 1,
+      "name": "Personal trainer",
+      "icon": "https://res.cloudinary.com/...",
+      "created_at": "2024-01-01T12:00:00Z",
+      "updated_at": "2024-01-01T12:00:00Z"
+   },
+   {
+      "id": 2,
+      "name": "bar",
+      "icon": "https://res.cloudinary.com/...",
+      "created_at": "2024-01-01T12:00:00Z",
+      "updated_at": "2024-01-01T12:00:00Z"
+   },
+   {
+      "id": 3,
+      "name": "parqueo",
+      "icon": "https://res.cloudinary.com/...",
+      "created_at": "2024-01-01T12:00:00Z",
+      "updated_at": "2024-01-01T12:00:00Z"
+   },
+   {
+      "id": 4,
+      "name": "A/C",
+      "icon": "https://res.cloudinary.com/...",
+      "created_at": "2024-01-01T12:00:00Z",
+      "updated_at": "2024-01-01T12:00:00Z"
+   }
+]
+const clases = [
+   {
+      "id": 1,
+      "name": "Baile",
+      "icon": "https://res.cloudinary.com/...",
+      "created_at": "2024-01-01T12:00:00Z",
+      "updated_at": "2024-01-01T12:00:00Z"
+   },
+   {
+      "id": 2,
+      "name": "Zumba",
+      "icon": "https://res.cloudinary.com/...",
+      "created_at": "2024-01-01T12:00:00Z",
+      "updated_at": "2024-01-01T12:00:00Z"
+   },
+   {
+      "id": 3,
+      "name": "Pilates",
+      "icon": "https://res.cloudinary.com/...",
+      "created_at": "2024-01-01T12:00:00Z",
+      "updated_at": "2024-01-01T12:00:00Z"
+   },
+   {
+      "id": 4,
+      "name": "Yoga",
+      "icon": "https://res.cloudinary.com/...",
+      "created_at": "2024-01-01T12:00:00Z",
+      "updated_at": "2024-01-01T12:00:00Z"
+   }
+]
 
 export const FiltroLocal = () => {
-   const { setQuery } = useParamQuery()
-   const { filter } = useFilter()
-   const { isMovil, filters, setFilters, openFilter, toggleFilter } = useResponsiveFilter(filter);
-
-   const updateQuery = (e) => {
-      e.preventDefault()
-      setQuery(filters)
-      toggleFilter(false)
+   const [, setSearchParams] = useSearchParams();
+   const [openFilter, setOpenFilter] = useState(false)
+   const handleOpenFilter = (bool) => {
+      setOpenFilter(bool || !openFilter)
+      if (bool) {
+         document.body.style.overflow = "hidden"
+      } else {
+         document.body.style.overflow = "unset"
+      }
    }
 
-   const clearFilter = () => {
-      setFilters({
-         service: [],
-         clase: [],
-      });
-      setQuery({});
-   };
+   useEffect(() => {
+      const handleResize = () => {
+         if (window.innerWidth > 768) {
+            document.body.style.overflow = "unset";
+            setOpenFilter(false);
+         }
+      };
+      window.addEventListener('resize', handleResize);
+      return () => {
+         window.removeEventListener('resize', handleResize);
+      };
+   }, []);
 
+   const setParams = (data) => setSearchParams(data);
    return (
       <>
-         <button
-            className='block md:hidden'
-            onClick={() => toggleFilter(true)}
-         >
-            <ListFilter
-               size={45}
-            />
-         </button>
-
-         <div className={`${isMovil
-            ? 'fixed inset-0 z-30 bg-black flex justify-center flex-col p-5 pt-16 gap-4'
-            : 'w-[20%] pb-8 relative z-10 border border-transparent  block space-y-10'} 
-            ${openFilter ? 'block' : 'hidden md:block'}`
-         }>
-
-            <div className='space-x-10 hidden md:block'>
-               <ListFilter
-                  className='inline-block align-middle'
-                  size={35}
-               />
-               <span className='text-2xl align-middle'>
-                  Filtros
-               </span>
-            </div>
-
-            <form className={`${isMovil
-               ? 'fixed inset-0 z-30  bg-black flex justify-center flex-col p-5 pt-16 gap-4'
-               : ''} `
-            }>
-               <button
-                  className='block md:hidden absolute top-5 right-5 cursor-pointer'
-                  onClick={() => toggleFilter(false)}
-                  type='button'
-               >
-                  <X size={40} />
-               </button>
-
-               <div className='min-h-[50%] md:min-h-0 overflow-y-auto md:overflow-hidden'>
-                  <FiltreList setFilters={setFilters} isMobile={isMovil} filters={filters} setQuery={setQuery} filter={filter} />
-               </div>
-
-               <div className='md:hidden space-y-4 w-full mt-auto'>
-                  <button className='bg-colorYellow text-black hover:opacity-90 rounded-lg p-3 text-center w-full'
-                     onClick={updateQuery}
-                  >
-                     Filtar
-                  </button>
-                  <button
-                     className='rounded-lg p-3 text-center w-full border-2' type='reset'
-                     onClick={clearFilter}
-                  >
-                     Limpiar
-                  </button>
-               </div>
-            </form>
-         </div>
+         {!openFilter &&
+            <FiltreDesktop setParams={setParams} />
+         }
+         <FiltreMovil handleOpenFilter={handleOpenFilter} openFilter={openFilter} setParams={setParams} />
       </>
    )
 }
 
-const FiltreList = ({ setFilters, isMobile, filters, setQuery, filter }) => {
-   //? Fetch a la api con tanstack-query
-   const { filterClasesQuery, filterServicesQuery } = useGetFilterLocal()
+const FiltreMovil = ({ handleOpenFilter, openFilter, setParams }) => {
+   const { filter } = useFilter()
+   const [dataFilter, setDataFilter] = useState(filter)
 
-   // Agrega filtros para el mobile
-   const setFiltreMobil = (name, value, checked) => {
-      setFilters(prevData => {
+   const filtreList = (name, value, checked) => {
+      setDataFilter(prevData => {
          const existingValues = prevData[name] || [];
          const updatedValues = checked
             ? [...new Set([...existingValues, value])]
@@ -103,14 +117,100 @@ const FiltreList = ({ setFilters, isMobile, filters, setQuery, filter }) => {
       });
    };
 
-   // Agrega filtros para el desktop
+   const updateUrlParms = (e) => {
+      e.preventDefault()
+      setParams(dataFilter)
+      handleOpenFilter(false)
+   }
+
+   const clearFilter = () => {
+      setDataFilter({
+         service: [],
+         clase: [],
+      });
+      setParams({});
+   };
+   return (
+      <>
+         <button
+            className='block md:hidden'
+            onClick={() => handleOpenFilter(true)}
+         >
+            <ListFilter
+               size={45}
+            />
+         </button>
+
+         <form className={`fixed inset-0 z-30  bg-black flex justify-center flex-col p-5 pt-16 gap-4 ${openFilter ? 'flex' : 'hidden'}`}>
+            <button
+               className='absolute top-5 right-5 cursor-pointer'
+               onClick={() => handleOpenFilter(false)}
+               type='button'
+            >
+               <X size={40} />
+            </button>
+
+            <div className='overflow-y-auto'>
+               <FiltreList funcion={filtreList} isMobile={true} dataFilter={dataFilter} />
+            </div>
+
+            <div className='space-y-4 w-full mt-auto'>
+               <button className='bg-[#fcad31] text-black hover:opacity-90 rounded-lg p-3 text-center w-full'
+                  onClick={updateUrlParms}
+               >
+                  Filtar
+               </button>
+               <button
+                  className='rounded-lg p-3 text-center w-full border-2' type='reset'
+                  onClick={clearFilter}
+               >
+                  Limpiar
+               </button>
+            </div>
+         </form>
+      </>
+   )
+}
+FiltreMovil.propTypes = {
+   handleOpenFilter: PropTypes.func,
+   openFilter: PropTypes.bool,
+   setParams: PropTypes.func,
+}
+
+const FiltreDesktop = ({ setParams }) => {
+   return (
+      <div className='w-[25%] md:w-[20%] pb-8 relative z-10  border border-transparent hidden md:block space-y-10'>
+
+         {/* <div className='w-[135%] 2xl:w-[230%] h-[100%] bg-[#000] absolute translate-x-[-25%] 2xl:translate-x-[-56%] -z-10 rounded-xl'> */}
+         {/* </div> */}
+
+         <div className='space-x-10'>
+            <ListFilter
+               className='inline-block align-middle'
+               size={35}
+            />
+            <span className='text-2xl align-middle'>
+               Filtros
+            </span>
+         </div>
+         <FiltreList setParams={setParams} />
+      </div>
+   )
+}
+FiltreDesktop.propTypes = {
+   setParams: PropTypes.func,
+}
+
+const FiltreList = ({ funcion, isMobile, dataFilter, setParams }) => {
+   const { filter } = useFilter()
+
    const handleCheck = (event) => {
       let { name, value, checked } = event.target
       value = value.toLowerCase()
       name = name.toLowerCase()
 
       if (isMobile) {
-         setFiltreMobil(name, value, checked)
+         funcion(name, value, checked)
          return;
       }
 
@@ -123,7 +223,7 @@ const FiltreList = ({ setFilters, isMobile, filters, setQuery, filter }) => {
          currentParams.delete(name);
          values.forEach((param) => currentParams.append(name, param));
       }
-      setQuery(currentParams.toString());
+      setParams(currentParams.toString());
    }
 
    const isChecked = (name, value) => {
@@ -131,33 +231,10 @@ const FiltreList = ({ setFilters, isMobile, filters, setQuery, filter }) => {
       name = name.toLowerCase()
 
       if (isMobile) {
-         return filters[name]?.includes(value);
+         return dataFilter[name]?.includes(value);
       }
       return filter[name]?.includes(value);
    }
-
-   const renderOptions = (items, name) => {
-      return items.map((item) => (
-         <label
-            key={item.id}
-            className='block space-x-3 text-lg cursor-pointer font-normal opacity-95'
-            htmlFor={`${name}-${item.id}`}
-         >
-            <input
-               className="align-middle"
-               type="checkbox"
-               name={name}
-               value={item.name}
-               id={`${name}-${item.id}`}
-               onChange={handleCheck}
-               checked={isChecked(name, item.name)}
-            />
-            <span className='align-middle'>
-               {item.name}
-            </span>
-         </label>
-      ));
-   };
 
    return (
       <div className='space-y-10'>
@@ -166,31 +243,62 @@ const FiltreList = ({ setFilters, isMobile, filters, setQuery, filter }) => {
                Servicios
             </legend>
             {
-               filterServicesQuery.isLoading
-                  ? <></>
-                  : renderOptions(filterServicesQuery.data, 'service')
+               services.map((service) => (
+                  <label
+                     key={service.id}
+                     className='block space-x-3 text-lg cursor-pointer font-normal opacity-95'
+                     htmlFor={`service-${service.id}`}
+                  >
+                     <input
+                        className="align-middle"
+                        type="checkbox"
+                        name="service"
+                        value={service.name}
+                        id={`service-${service.id}`}
+                        onChange={handleCheck}
+                        checked={isChecked('service', service.name)}
+                     />
+                     <span className='align-middle'>
+                        {service.name}
+                     </span>
+                  </label>
+               ))
             }
          </fieldset>
-
          <fieldset className='space-y-8 text-xl md:font-light capitalize'>
             <legend className='font-medium'>
-               Clases
+               clases
             </legend>
             {
-               filterClasesQuery.isLoading
-                  ? <></>
-                  : renderOptions(filterClasesQuery.data, 'clase')
+               clases.map((clases) => (
+                  <label
+                     className='block space-x-3 text-lg cursor-pointer font-normal opacity-95'
+                     htmlFor={`clases-${clases.id}`}
+                     key={clases.id}
+                  >
+                     <input
+                        className="align-middle"
+                        type="checkbox"
+                        name="clase"
+                        value={clases.name}
+                        id={`clases-${clases.id}`}
+                        onChange={handleCheck}
+                        checked={isChecked('clase', clases.name)}
+                     />
+                     <span className='align-middle'>
+                        {clases.name}
+                     </span>
+                  </label>
+               ))
             }
          </fieldset>
-
       </div>
    )
 }
 
 FiltreList.propTypes = {
-   setFilters: PropTypes.func,
+   funcion: PropTypes.func,
    isMobile: PropTypes.bool,
-   filters: PropTypes.object,
-   setQuery: PropTypes.func,
-   filter: PropTypes.object
+   dataFilter: PropTypes.object,
+   setParams: PropTypes.func,
 };
