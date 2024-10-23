@@ -152,7 +152,7 @@ const FiltreList = ({ setFilters, isMobile, filters, setQuery, filter }) => {
                onChange={handleCheck}
                checked={isChecked(name, item.name)}
             />
-            <span className='align-middle'>
+            <span className='align-middle select-none'>
                {item.name}
             </span>
          </label>
@@ -162,7 +162,7 @@ const FiltreList = ({ setFilters, isMobile, filters, setQuery, filter }) => {
    return (
       <div className='space-y-10'>
          <fieldset className='space-y-8 text-xl md:font-light capitalize'>
-            <legend className='font-medium'>
+            <legend className='font-medium select-none'>
                Servicios
             </legend>
             {
@@ -173,7 +173,7 @@ const FiltreList = ({ setFilters, isMobile, filters, setQuery, filter }) => {
          </fieldset>
 
          <fieldset className='space-y-8 text-xl md:font-light capitalize'>
-            <legend className='font-medium'>
+            <legend className='font-medium select-none'>
                Clases
             </legend>
             {
