@@ -1,8 +1,8 @@
 import { string } from "prop-types";
 import { CustomSlider } from "./slider/CustomSlider";
 import { TestimonialCard } from "./cards/TestimonialCard";
-import { dataTestimonios } from "../data/dataTestimonios";
-import background_testimonial from '../assets/img/TESTIMONY_IMG.png';
+import { dataTestimonios } from "../../data/dataTestimonios";
+import background_testimonial from '../../assets/img/TESTIMONY_IMG.png';
 
 export function TestimonialUsers() {
   return (

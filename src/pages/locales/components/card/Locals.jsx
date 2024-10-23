@@ -1,6 +1,6 @@
 import { useLocales } from "@/hooks/useLocales";
 import { CardLocal } from "./CardLocal"
-import { CardSkeletonLocal } from "@/components/cards/CardSkeletons";
+import { CardSkeletonLocal } from "@/components/landing/cards/CardSkeletons";
 import { CustomPagination } from "../paginate/CustomPagination";
 
 export const Locals = () => {

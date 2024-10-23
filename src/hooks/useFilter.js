@@ -3,7 +3,7 @@ import { useSearchParams } from 'react-router-dom';
 
 export const useFilter = () => {
    const [searchParams,] = useSearchParams();
-   
+
    const [filter, setFilter] = useState({
       service: searchParams.getAll('service'),
       clase: searchParams.getAll('clase'),
@@ -39,6 +39,7 @@ export const useResponsiveFilter = (initialFilter) => {
          const isMobile = window.innerWidth <= 768;
          setIsMovil(isMobile);
          if (!isMobile) {
+            document.body.style.overflow = 'unset';
             setOpenFilter(false);
          }
       };

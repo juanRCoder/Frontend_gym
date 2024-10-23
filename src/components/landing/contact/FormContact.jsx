@@ -1,9 +1,9 @@
-import { Link } from "react-router-dom";
-import InputBase from "./InputBase";
+import InputText from "./InputBase";
+import { useForm } from "react-hook-form";
 import { AiFillFacebook } from "react-icons/ai";
 import { FaXTwitter } from "react-icons/fa6";
 import { FaInstagramSquare } from "react-icons/fa";
-import { useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
 
 function FormContact() {
   const {
@@ -17,45 +17,48 @@ function FormContact() {
   };
 
   return (
-    <div className="flex flex-col sm:w-1/2">
+    <div className="flex flex-col sm:pt-2 sm:w-1/2 lg:w-[522px]">
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="flex flex-col pt-8 sm:pt-12 md:pt-16 gap-6 sm:gap-8 md:gap-10"
+        className="flex flex-col gap-6 sm:gap-8 md:gap-10"
       >
-        <InputBase
+        {/* NOMBRE */}
+        <InputText
           label={"Nombre"}
           type={"text"}
           register={register}
           placeholder={"Nombre"}
           name={"name"}
         />
-        <InputBase
+        {/* EMAIL */}
+        <InputText
           label={"Email"}
           register={register}
           type={"email"}
-          placeholder={"Email"}
+          placeholder={"Usuario@gmail.com"}
           name={"email"}
         />
-        <div className="text-lg sm:text-xl md:text-3xl flex flex-col md:flex-row items-start gap-3 sm:gap-5 md:gap-14">
-          <label id="tarea" className="text-white block w-32 md:w-44">
+        {/* TEXTAREA */}
+        <div className="text-lg sm:text-xl md:text-[22px] flex flex-col md:flex-row items-start gap-5">
+          <label id="tarea" className="text-white block w-32">
             Mensaje:
           </label>
           <textarea
             {...register("message")}
-            className="resize-none text-white py-[10px] px-5 tracking-wider rounded-2xl text-base sm:text-xl bg-[#181D23] outline-[2.5px] border-transparent outline-none outline-white focus:outline-yellow focus:text-yellow h-52 w-full"
+            className="resize-none py-[10px] px-5  rounded-2xl sm:text-xl bg-[#181D23] outline-[2.5px] border-transparent outline-none outline-white focus:outline-yellow focus:text-yellow h-64 w-full"
             id="tarea"
           ></textarea>
         </div>
-
-        <div className="md:pl-36">
-          <button className="bg-[#f4af00] text-black text-lg sm:text-xl md:text-3xl  font-semibold py-2 px-4 rounded-2xl w-full">
+        {/* BUTTON DE ENVIAR */}
+        <div className="text-lg sm:text-xl md:text-[22px] flex flex-col md:flex-row items-start gap-5">
+          <span className="text-white block w-32"/>
+          <button className="bg-[#f4af00] text-black text-2xl font-semibold py-2 rounded-2xl w-full">
             ENVIAR
           </button>
         </div>
-      </form>
-      <div className="text-white text-lg sm:text-xl md:text-2xl leading-snug pt-12">
+        <div className="text-white text-lg sm:text-xl md:text-[22px] pt-32">
         También puedes seguirnos en nuestras redes sociales para estar al tanto de nuestras promociones y eventos:
-        <div className="flex gap-2 mt-6">
+        <div className="flex gap-2 py-6">
           {[
             [AiFillFacebook],
             [FaXTwitter],
@@ -67,6 +70,7 @@ function FormContact() {
           ))}
         </div>
       </div>
+      </form>
     </div>
   );
 }

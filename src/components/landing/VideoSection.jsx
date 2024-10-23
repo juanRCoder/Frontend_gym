@@ -1,4 +1,4 @@
-import RAY_DARK from "../assets/img/ray_day.png";
+import RAY_DARK from "../../assets/img/ray_day.png";
 
 function VideoSection() {
   return (

@@ -3,7 +3,7 @@ import { ButtomCuston, Locals, FiltroLocal, InputSearch, TitleCustom } from './c
 const PageLocales = () => {
 
    return (
-      <div className="relative text-white w-[90%] min-h-[100dvh] max-w-[80rem] mx-auto space-y-16 pb-5 overflow-hidden bg-radial-gradient">
+      <div className="relative text-white w-[90%] min-h-[100dvh] max-w-[80rem] mx-auto overflow-hidden bg-radial-gradient space-y-16 pb-10">
          <figure className="absolute z-0 md:-left-5 w-[20rem] md:w-[40rem] md:h-[43rem] opacity-30 select-none" >
             <img
                className="w-full h-full"

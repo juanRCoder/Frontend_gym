@@ -1,4 +1,4 @@
-import { dataServices } from "../data/dataServices";
+import { dataServices } from "../../data/dataServices";
 
 function Services() {
   return (

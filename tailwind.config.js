@@ -4,6 +4,9 @@ export default {
     content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
   	extend: {
+			fontFamily: {
+				'oswald': ['Oswald', 'sans-serif'],
+			},
 			// keyframes y animation del acordeon
   		keyframes: {
   			'accordion-down': {

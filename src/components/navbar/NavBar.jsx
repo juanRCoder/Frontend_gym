@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import NavigationBar from "./NavigationBar";
 import powerLogo from "../../assets/img/powerzone_logo.png";
-import ButtonNavigation from "./mobile/ButtonNavigation";
+import ButtonNavigation from "./ButtonNavigation";
 
 function NavBar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -24,9 +24,8 @@ function NavBar() {
 
   return (
     <section
-      className={`sticky top-0 w-full z-20 transition-all duration-500 ${
-        isScrolled ? "bg-white/30 backdrop-blur-lg" : "bg-header"
-      }`}
+      className={`sticky top-0 w-full z-20 transition-all duration-500 ${isScrolled ? "bg-white/30 backdrop-blur-lg" : "bg-header"
+        }`}
     >
       <header className="m-auto max-w-7xl">
         <div className="flex justify-between items-center py-5 mx-8 lg:mx-24">
