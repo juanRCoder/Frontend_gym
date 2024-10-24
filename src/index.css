@@ -33,3 +33,16 @@
 .bg-layout {
   background: linear-gradient(90deg, rgba(10,10,11,1) 0%, rgba(45,45,46,1) 25%, rgba(59,59,59,1) 50%, rgba(62,62,63,1) 75%, rgba(10,10,11,1) 100%);
 }
+
+
+.bg-radial-gradient {
+  background-image: radial-gradient(
+    50% 50% at 50% 5%,
+    #313132 10%,
+    #000 100%);
+  background-color: aquamarine;
+}
+
+.hover_img_card:hover  img {
+  transform: scale(1.03);
+}

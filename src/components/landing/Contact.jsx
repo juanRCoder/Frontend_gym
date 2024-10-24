@@ -2,7 +2,7 @@ import FormContact from "./contact/FormContact";
 
 function Contact() {
   return (
-    <aside className="pb-36 relative z-50">
+    <aside className="pb-36 relative z-10">
       <section className="max-w-7xl m-auto">
         <section className="flex flex-col w-fit my-10 mx-8 lg:mx-24">
           <div className="tracking-wide space-y-2 mb-16">

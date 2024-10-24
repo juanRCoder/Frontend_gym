@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { IoCartOutline } from "react-icons/io5";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 export default function NavigationBar() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -30,9 +31,9 @@ export default function NavigationBar() {
               ["Planes"]
             ].map(([option], i) => (
               <li key={i}>
-                <a className="text-lg block px-4 py-2 hover:bg-gray-200 hover:bg-yellow hover:text-white cursor-pointer">
+                <Link to={option} className="text-lg block px-4 py-2 hover:bg-gray-200 hover:bg-yellow hover:text-white cursor-pointer">
                   {option}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
