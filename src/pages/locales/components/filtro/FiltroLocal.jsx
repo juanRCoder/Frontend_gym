@@ -140,7 +140,7 @@ const FiltreList = ({ setFilters, isMobile, filters, setQuery, filter }) => {
       return items.map((item) => (
          <label
             key={item.id}
-            className='block space-x-3 text-lg cursor-pointer font-normal opacity-95'
+            className='block space-x-3 text-lg cursor-pointer font-normal opacity-95 animate-fadeIn'
             htmlFor={`${name}-${item.id}`}
          >
             <input
@@ -160,8 +160,8 @@ const FiltreList = ({ setFilters, isMobile, filters, setQuery, filter }) => {
    };
 
    return (
-      <div className='space-y-10'>
-         <fieldset className='space-y-8 text-xl md:font-light capitalize'>
+      <div className='space-y-10 min-h-[28rem]'>
+         <fieldset className='min-h-[14rem] text-xl md:font-light capitalize space-y-8'>
             <legend className='font-medium select-none'>
                Servicios
             </legend>
@@ -172,7 +172,7 @@ const FiltreList = ({ setFilters, isMobile, filters, setQuery, filter }) => {
             }
          </fieldset>
 
-         <fieldset className='space-y-8 text-xl md:font-light capitalize'>
+         <fieldset className='min-h-[14rem] text-xl md:font-light capitalize space-y-8'>
             <legend className='font-medium select-none'>
                Clases
             </legend>
