@@ -42,7 +42,7 @@ export const useLocationUser = () => {
                   address: data.address.road || 'Desconocido',
                   country: data.address.country || 'Desconocido',
                   zip_code: data.address.postcode || 'Desconocido',
-                  search: `${data.address.country}, ${data.address.road || ''}`
+                  search: `${data.address.city}, ${data.address.address || ''}`
                });
 
                return `${data.address.country}, ${data.address.road}`;
