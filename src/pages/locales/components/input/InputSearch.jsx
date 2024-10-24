@@ -6,6 +6,7 @@ import { useCloseContainer } from "@/hooks/useCloseContainer"
 import { useLocationUser } from "@/hooks/useLocation"
 import { useGetAdreesLocal } from "@/hooks/useGetAdreesLocal"
 
+
 export const InputSearch = ({ className }) => {
    //? Fetch a la api con tanstack-query
    const { addressQuery } = useGetAdreesLocal()
@@ -17,10 +18,9 @@ export const InputSearch = ({ className }) => {
 
    const filterAddressData = useRef([])
    const arrayData = useRef([])
-   if (addressQuery.data) {
+   if (addressQuery.data && arrayData.current?.length === 0) {
       arrayData.current = addressQuery.data
    }
-
    const handleSuggestion = (bool) => {
       filterAddressData.current = []
       setClose(bool ?? !isClose)

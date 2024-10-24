@@ -1,4 +1,3 @@
-
 export const getAllAdress = async () => {
    const response = await fetch(`${import.meta.env.VITE_API_URL}/local/all/location`, {
       method: 'GET',
@@ -8,11 +7,30 @@ export const getAllAdress = async () => {
    })
 
    const data = await response.json()
+   if (!response.ok) {
+      throw new Error(data.message || 'Error inesperado!')
+   }
+
    const locations = data.data
    let arrayData = []
 
    locations.forEach((location) => {
-      arrayData.push(location.city, location.address, location.zip_code.toString() +', '+ location.city, location.country)
+      let address = ''
+      for (const [key, value] of Object.entries(location)) {
+         const isInclude = arrayData.includes(value)
+
+         if (!isInclude && typeof value != 'number') {
+            if (key == 'address') {
+               address = value
+            }
+            if (key == 'zip_code') {
+               arrayData.push(value + ' ' + address)
+
+            } else {
+               arrayData.push(value)
+            }
+         }
+      }
    })
    return arrayData
 }
